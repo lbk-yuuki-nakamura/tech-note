@@ -1,22 +1,23 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import 'highlight.js/styles/github-dark.css';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import type { Metadata } from "next";
+import "./globals.css";
+import "highlight.js/styles/github-dark.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Tech Note',
-    template: '%s | Tech Note',
+    default: "Tech Note",
+    template: "%s | Tech Note",
   },
-  description: 'プログラマーの技術ブログ',
+  description: "プログラマーの技術ブログ",
   openGraph: {
-    siteName: 'Tech Note',
-    locale: 'ja_JP',
-    type: 'website',
+    siteName: "Tech Note",
+    locale: "ja_JP",
+    type: "website",
   },
   robots: {
     index: true,
@@ -38,6 +39,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
