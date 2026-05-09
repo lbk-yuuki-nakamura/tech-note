@@ -4,11 +4,11 @@ import TagBadge from './TagBadge';
 
 interface Props {
   tags: { tag: string; count: number }[];
-  activeTag?: string;
+  selectedTags: string[];
   currentQuery?: string;
 }
 
-export default function TagFilter({ tags, activeTag, currentQuery }: Props) {
+export default function TagFilter({ tags, selectedTags, currentQuery }: Props) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -33,7 +33,7 @@ export default function TagFilter({ tags, activeTag, currentQuery }: Props) {
         <div className="mt-3 flex flex-wrap gap-2" data-testid="tag-filter">
           {tags.map(({ tag, count }) => (
             <span key={tag} className="flex items-center gap-1">
-              <TagBadge tag={tag} active={tag === activeTag} currentQuery={currentQuery} />
+              <TagBadge tag={tag} selectedTags={selectedTags} currentQuery={currentQuery} />
               <span className="text-xs text-slate-500">({count})</span>
             </span>
           ))}

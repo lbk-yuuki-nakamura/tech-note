@@ -89,12 +89,13 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   };
 }
 
-export function filterPosts(query?: string, tag?: string): PostMeta[] {
+export function filterPosts(query?: string, tags?: string[]): PostMeta[] {
   const q = query?.toLowerCase().trim();
+  const matchesTags = (postTags: string[]) =>
+    !tags || tags.length === 0 || tags.every((t) => postTags.includes(t));
 
   if (!q) {
-    const all = getAllPostsMeta();
-    return tag ? all.filter((p) => p.frontmatter.tags.includes(tag)) : all;
+    return getAllPostsMeta().filter((p) => matchesTags(p.frontmatter.tags));
   }
 
   const postsDir = getPostsDir();
@@ -112,7 +113,7 @@ export function filterPosts(query?: string, tag?: string): PostMeta[] {
       return { slug, frontmatter, rawContent: content };
     })
     .filter((post) => !isFutureDate(post.frontmatter.createAt))
-    .filter((post) => !tag || post.frontmatter.tags.includes(tag))
+    .filter((post) => matchesTags(post.frontmatter.tags))
     .filter(
       (post) =>
         post.frontmatter.title.toLowerCase().includes(q) ||

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { getAllPostsMeta, getPostBySlug } from '@/lib/posts';
 import TagBadge from '@/components/TagBadge';
+import BackLink from '@/components/BackLink';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -57,13 +57,12 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10">
       <div className="mb-2">
-        <Link
-          href="/"
+        <BackLink
           className="text-sm text-blue-400 hover:underline"
-          data-testid="back-link"
+          testId="back-link"
         >
           ← 記事一覧へ
-        </Link>
+        </BackLink>
       </div>
 
       <article>
@@ -96,9 +95,9 @@ export default async function ArticlePage({ params }: Props) {
       </article>
 
       <div className="mt-10 border-t border-slate-700 pt-6">
-        <Link href="/" className="text-sm text-blue-400 hover:underline">
+        <BackLink className="text-sm text-blue-400 hover:underline">
           ← 記事一覧へ戻る
-        </Link>
+        </BackLink>
       </div>
     </div>
   );

@@ -37,10 +37,6 @@ test.describe('ホームページ', () => {
     await expect(tagFilter).toContainText('Next.js');
   });
 
-  test('ヘッダーが表示される', async ({ page }) => {
-    await expect(page.locator('header')).toBeVisible();
-  });
-
   test('フッターが表示される', async ({ page }) => {
     await expect(page.locator('footer')).toBeVisible();
   });

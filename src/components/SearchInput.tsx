@@ -4,17 +4,17 @@ import { useRef } from 'react';
 
 interface Props {
   defaultValue?: string;
-  currentTag?: string;
+  currentTags?: string[];
 }
 
-export default function SearchInput({ defaultValue, currentTag }: Props) {
+export default function SearchInput({ defaultValue, currentTags }: Props) {
   const router = useRouter();
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const navigate = (value: string) => {
     const params = new URLSearchParams();
     if (value.trim()) params.set('q', value.trim());
-    if (currentTag) params.set('tag', currentTag);
+    for (const t of currentTags ?? []) params.append('tag', t);
     const query = params.toString();
     router.push(query ? `/?${query}` : '/');
   };

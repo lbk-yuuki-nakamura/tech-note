@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "highlight.js/styles/github-dark.css";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -37,7 +36,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </head>
       <body className="flex min-h-screen flex-col">
-        <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <Analytics />
