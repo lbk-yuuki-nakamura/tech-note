@@ -1,0 +1,148 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2020-04-30-000000-1"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2020-04-30-000000-1","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2020-04-30-000000-1","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:T2b00,<p>■はじめに</p>
+<p>本記事は、以下の条件で記載しています。</p>
+<p>・既にAppStoreにアプリがリリースされている物を自動化する</p>
+<p>・Githubでソースコードを管理している</p>
+<p>・CocoaPodsを使用している</p>
+<p>■BitriseでiOSアプリのリリースビルドを自動化する方法</p>
+<p>1.プロジェクトをXcodeで開き、左上のプロジェクト名を選択し、「Manage Schemes...」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707130323.png" alt=""></p>
+<p>2.「＋」を押下し、適当な名前を入力して「OK」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120407.png" alt=""></p>
+<p>3.「2」で追加したSchemeの「Container」を「[プロジェクト名] Workspace」に変更してGitへPushする。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707130423.png" alt=""></p>
+<p>4.以下のリンク先にアクセスする。</p>
+<p><a href="https://www.bitrise.io/">https://www.bitrise.io/</a></p>
+<p>5.「Sign Up」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120326.png" alt=""></p>
+<p>6.「Sign up with GitHub」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120432.png" alt=""></p>
+<p>7.GitHubのユーザー名（メールアドレス）とパスワードを入力して「Sign in」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120532.png" alt=""></p>
+<p>8.「Authorize bitrise-io」を押下する。（Bitriseとの接続を認証させる。）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120648.png" alt=""></p>
+<p>9.Bitriseで使用するユーザー名とパスワードを入力して「Next」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120758.png" alt=""></p>
+<p>10.「START BUILDING FOR FREE」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120840.png" alt=""></p>
+<p>11.「Add your first app」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120853.png" alt=""></p>
+<p>12.「Private」を選択し、「Next」を押下する。（リポジトリがPublicの場合はそちらを選択する。）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120904.png" alt=""></p>
+<p>13.「Repositories」から対象のリポジトリを選択する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707130313.png" alt=""></p>
+<p>14.「I need to」を選択する。（初回だけで良さそう。。。？）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707130317.png" alt=""></p>
+<p>15.「COPY TO CLIPBOARD」を押下し、「GITHUB SETTINGS」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120330.png" alt=""></p>
+<p>16.「New SSH Key」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120339.png" alt=""></p>
+<p>17.「Title」に任意のタイトルを入力し、Keyに「15」でコピーしたキーを貼り付け、「Add SSH key」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120346.png" alt=""></p>
+<p>18.GitHubのパスワードを入力して、「Confirm password」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120349.png" alt=""></p>
+<p>19.SSH keysにキーが追加されていたら成功なので、Bitriseのタブに戻る。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120352.png" alt=""></p>
+<p>20.「I've added the SSH key」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120356.png" alt=""></p>
+<p>21.「Choose branch」に対象のブランチを入力し、「Next」を押下する。（特にブランチを切っていなければ「master」を入力する）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120403.png" alt=""></p>
+<p>22.「VALIDATING REPOSITORY」が出たら、放置する。（リポジトリのチェックが行われる）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120414.png" alt=""></p>
+<p>23.「Project build configuration」が表示されたら、「Select ipa export method」で対象環境を選択する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120422.png" alt=""></p>
+<p>24.「Selected project build configuration」を確認して、問題なければ「Confirm」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120425.png" alt=""></p>
+<p>25.「App icon」でBitriseで表示するアイコンを選択し、「Choose Image and Proceed」を押下する。（特に拘らなければ、そのまま押下する）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120436.png" alt=""></p>
+<p>26.「Skip the Webhook registration」を押下する。（GitへのPushを監視して自動でデプロイしたい場合は、このWebhookを設定する。）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120443.png" alt=""></p>
+<p>27.「We've kicked off your first test build for you!」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120446.png" alt=""></p>
+<p>28.初回ビルドが実行されるので、終了するまで待機する。（ここではエラーが発生します。※証明書の設定をしていないので。）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120450.png" alt=""></p>
+<p>29.プロジェクト名を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120456.png" alt=""></p>
+<p>30.「Workflow」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120500.png" alt=""></p>
+<p>31.「Code Signing」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120503.png" alt=""></p>
+<p>32.証明書（拡張子が「.p12」のファイル）を「CODE SIGNING IDENTITY」にドラック＆ドロップでアップし、パスワードを入力する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120506.png" alt=""></p>
+<p>33.「Workflows」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120514.png" alt=""></p>
+<p>34.「Run CocoaPods install」の下の「＋」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120521.png" alt=""></p>
+<p>35.「Search steps」に「auto」を入力する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120536.png" alt=""></p>
+<p>36.表示された「iOS Auto Provision」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120548.png" alt=""></p>
+<p>37.「Certificate and profile installer」を削除する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120552.png" alt=""></p>
+<p>38.「command + s」で保存し、プロジェクト名を選択する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120556.png" alt=""></p>
+<p>39.「Click here to setup deployment to your devices!」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120603.png" alt=""></p>
+<p>40.証明書は入っているはずなので、そのまま「Next」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120606.png" alt=""></p>
+<p>41.画面の手順に沿ってAppleのログインをする（個人情報がぎっしりだったので、画像は省きました。。。）</p>
+<p>42.対象のチームを選択して、「Select Team」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120614.png" alt=""></p>
+<p>43.「Team」タブを押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120617.png" alt=""></p>
+<p>44.下の方の「Connected Apple Developer Portal Account」を自分のアカウントに変更し、「Save」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120626.png" alt=""></p>
+<p>45.「Start/Schedule a Build」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120652.png" alt=""></p>
+<p>46.「Start Build」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120655.png" alt=""></p>
+<p>47.ビルドが終了するまで待つ。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120658.png" alt=""></p>
+<p>48.ビルドが成功したら、ワークフローを表示する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120702.png" alt=""></p>
+<p>49.「Bitrise.io Cache:Push」の上の「＋」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120705.png" alt=""></p>
+<p>50.「itunes」を検索し、「Deploy to iTunes Connect - Application Loader」を選択する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120712.png" alt=""></p>
+<p>51.「50」で追加したジョブの設定で、「Apple ID」の「Select secret varible」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120727.png" alt=""></p>
+<p>52.「Key」に適当な値を入力し、「Value」にAppleのメールアドレス（AppleId）を入力し、「Add new」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120731.png" alt=""></p>
+<p>53.「Password」の「Select secret variable」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120735.png" alt=""></p>
+<p>54.「Key」に適当な値を入力し、「Value」にAppleのパスワードを入力し、「Add new」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120739.png" alt=""></p>
+<p>55.「Application Specific Password」を選択し、「AppleID Wensite」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120802.png" alt=""></p>
+<p>56.「55」で開いたWebサイトにログインする。（ログインするだけなので画像は省きます。）</p>
+<p>57.「セキュリティ」の「パスワードを生成...」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120806.png" alt=""></p>
+<p>58.適当なラベルを入力し、「作成」を押下して生成されたパスワードをコピーする。（※25個まで保持できますが、一応メモしておいてください。）</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120810.png" alt=""></p>
+<p>59.Bitriseに戻り、「Application Specific Password」の「Select secret variable」を押下し、「Key」に適当な値を入力し、「Value」に「58」で取得したパスワードを入力し、「Add new」を押下する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120813.png" alt=""></p>
+<p>60.「Deploy to Bitrise.io - Apps,Lo...」を削除する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120822.png" alt=""></p>
+<p>61.「iOS Auto Provision」の「Distribution type」を「app-store」に変更する。</p>
+<p><img src="/images/2020-04-30-000000-1/20220707120826.png" alt=""></p>
+<p>62.これで、設定は終了です。保存して、ビルドしてみましょう！</p>
+<p>※エラーが出たら、そのエラーをググるか、Xcodeで手動でリリースビルドしてみてエラーが出るか確認してみましょう。</p>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"BitriseでiOSアプリのリリースビルドを自動化する方法"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2020-04-30 00:00","data-testid":"article-date","children":"2020年4月30日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$12"}}]]}],"$L13"]}]
+13:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+14:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"BitriseでiOSアプリのリリースビルドを自動化する方法 | Tech Note"}],["$","meta","1",{"name":"description","content":"BitriseでiOSアプリのリリースビルドを自動化する方法 - Tech Note"}],["$","meta","2",{"name":"robots","content":"index, follow"}],["$","link","3",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-04-30-000000-1"}],["$","meta","4",{"property":"og:title","content":"BitriseでiOSアプリのリリースビルドを自動化する方法"}],["$","meta","5",{"property":"og:description","content":"BitriseでiOSアプリのリリースビルドを自動化する方法 - Tech Note"}],["$","meta","6",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-04-30-000000-1"}],["$","meta","7",{"property":"og:type","content":"article"}],["$","meta","8",{"property":"article:published_time","content":"2020-04-30 00:00"}],["$","meta","9",{"name":"twitter:card","content":"summary"}],["$","meta","10",{"name":"twitter:title","content":"BitriseでiOSアプリのリリースビルドを自動化する方法"}],["$","meta","11",{"name":"twitter:description","content":"BitriseでiOSアプリのリリースビルドを自動化する方法 - Tech Note"}],["$","link","12",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L14","13",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

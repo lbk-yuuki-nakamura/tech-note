@@ -1,0 +1,159 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2020-04-24-000000-4"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2020-04-24-000000-4","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2020-04-24-000000-4","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:T4560,<h1>■はじめに</h1>
+<p>画像（写真）や、動画（ビデオ）などを扱っていると、容量が大きくてサーバーへのアップロードに時間がかかったり
+端末の容量の圧迫につながったりと言う事があります。</p>
+<p>このような場合に、容量を抑える方法を記載します。</p>
+<h1>◾️画像の圧縮（縮小）</h1>
+<p>画像をサーバーへ送信したりするアプリだと、画像が大きすぎて送信に時間がかかるという問題があります。
+※カメラの性能が良くなった事が原因ですね。。。</p>
+<p>この様な場合には、必要なサイズに画像を縮小して少しでも画像サイズを減らした上で送信する事をお勧めします。
+実際にどの様に処理をするかを以下に記載します。</p>
+<p>「targetImage」という「UIImage」型の変数に縮小前の画像が入っている前提です。</p>
+<pre><code class="hljs language-swift"><span class="hljs-comment">// 取得した画像の縦サイズ、横サイズを取得する</span>
+int originalWidth <span class="hljs-operator">=</span> targetImage.size.width;
+int originalHeight <span class="hljs-operator">=</span> targetImage.size.height;
+
+<span class="hljs-comment">// リサイズする倍率を作成する。</span>
+float scale <span class="hljs-operator">=</span> <span class="hljs-number">0</span>.0f;
+float maxSize <span class="hljs-operator">=</span> <span class="hljs-number">100</span>.0f;
+<span class="hljs-keyword">if</span> (originalWidth <span class="hljs-operator">></span> originalHeight) {
+    scale <span class="hljs-operator">=</span> maxSize <span class="hljs-operator">/</span> originalHeight;
+} <span class="hljs-keyword">else</span> {
+    scale <span class="hljs-operator">=</span> maxSize <span class="hljs-operator">/</span> originalWidth;
+}
+
+<span class="hljs-comment">// 縦横比を合わせた状態でリサイズするためのサイズ設定</span>
+<span class="hljs-type">CGSize</span> resizedSize <span class="hljs-operator">=</span> <span class="hljs-type">CGSizeMake</span>(originalWidth <span class="hljs-operator">*</span> scale, originalHeight <span class="hljs-operator">*</span> scale);
+<span class="hljs-comment">// コンテキストへコピー</span>
+<span class="hljs-type">UIGraphicsBeginImageContext</span>(resizedSize);
+<span class="hljs-comment">// 元のイメージを用意したサイズに変換</span>
+[targetImaged drawInRect:<span class="hljs-type">CGRectMake</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, resizedSize.width, resizedSize.height)];
+<span class="hljs-comment">// 変換してイメージを「completionImage」に書き出す</span>
+<span class="hljs-type">UIImage</span><span class="hljs-operator">*</span> completionImage <span class="hljs-operator">=</span> <span class="hljs-type">UIGraphicsGetImageFromCurrentImageContext</span>();
+<span class="hljs-type">UIGraphicsEndImageContext</span>();
+</code></pre>
+<h1>◾️動画の圧縮（縮小）</h1>
+<p>動画の場合には、画像と違い1つの動画で結構容量が大きいですよね。
+ここでは、動画の容量を縮小させるために「動画を生成し直す」方法を説明します。</p>
+<p>単に動画を生成し直すだけでは、容量は抑える事ができません。
+動画を生成し直す時に、「動画のサイズ」「フレームレート」などを下げて生成し直す事で容量を抑える事ができます。</p>
+<p>以下のメソッドを使用する事で、生成し直した動画をDocumentディレクトリ内に生成できます。
+このメソッドを呼び出す時には、引数に生成し直す元の動画のURLを渡してください。</p>
+<pre><code class="hljs language-swift"><span class="hljs-keyword">func</span> <span class="hljs-title function_">compression</span>(<span class="hljs-params">beforeMovieUrl</span>: <span class="hljs-type">URL</span>) {
+    <span class="hljs-keyword">let</span> videoURL: <span class="hljs-type">URL</span> <span class="hljs-operator">=</span> getDocumentsDirectory().appendingPathComponent(<span class="hljs-string">"<span class="hljs-subst">\(Date().millisecondsSince1970)</span>tmpMovieSample.mov"</span>)
+    <span class="hljs-comment">//コンポジション作成</span>
+    <span class="hljs-keyword">let</span> mixComposition : <span class="hljs-type">AVMutableComposition</span> <span class="hljs-operator">=</span> <span class="hljs-type">AVMutableComposition</span>()
+    <span class="hljs-comment">//アセットの作成</span>
+    <span class="hljs-comment">//動画のアセットとトラックを作成</span>
+    <span class="hljs-keyword">let</span> videoAsset: <span class="hljs-type">AVURLAsset</span> <span class="hljs-operator">=</span> <span class="hljs-type">AVURLAsset</span>(url: beforeMovieUrl, options:<span class="hljs-literal">nil</span>)
+    <span class="hljs-comment">// 元の動画ファイルから、動画（音声なし）トラックの取得</span>
+    <span class="hljs-keyword">let</span> videoTrack: <span class="hljs-type">AVAssetTrack</span> <span class="hljs-operator">=</span> (videoAsset.tracks(withMediaType: <span class="hljs-type">AVMediaType</span>.video))[<span class="hljs-number">0</span>]
+    <span class="hljs-comment">// ベースとなる動画のコンポジション作成</span>
+    <span class="hljs-keyword">let</span> compositionVideoTrack: <span class="hljs-type">AVMutableCompositionTrack</span>! <span class="hljs-operator">=</span> mixComposition.addMutableTrack(withMediaType: <span class="hljs-type">AVMediaType</span>.video, preferredTrackID: kCMPersistentTrackID_Invalid)
+    <span class="hljs-comment">// 動画の長さ設定</span>
+    <span class="hljs-keyword">try!</span> compositionVideoTrack.insertTimeRange(<span class="hljs-type">CMTimeRangeMake</span>(start: <span class="hljs-type">CMTime</span>.zero, duration: videoAsset.duration), of: videoTrack, at: <span class="hljs-type">CMTime</span>.zero)
+    <span class="hljs-comment">// 音声付きの動画か判定</span>
+    <span class="hljs-keyword">if</span> videoAsset.tracks(withMediaType: <span class="hljs-type">AVMediaType</span>.audio).count <span class="hljs-operator">></span> <span class="hljs-number">0</span> {
+        <span class="hljs-comment">// 音声付き動画の場合、音声を取得し設定する</span>
+        <span class="hljs-comment">// 元の動画ファイルから、オーディオトラックの取得</span>
+        <span class="hljs-keyword">let</span> audioTrack: <span class="hljs-type">AVAssetTrack</span> <span class="hljs-operator">=</span> (videoAsset.tracks(withMediaType: <span class="hljs-type">AVMediaType</span>.audio))[<span class="hljs-number">0</span>]
+        <span class="hljs-comment">// ベースとなる音声のコンポジション作成</span>
+        <span class="hljs-keyword">let</span> compositionAudioTrack: <span class="hljs-type">AVMutableCompositionTrack</span>! <span class="hljs-operator">=</span> mixComposition.addMutableTrack(withMediaType: <span class="hljs-type">AVMediaType</span>.audio, preferredTrackID: kCMPersistentTrackID_Invalid)
+        <span class="hljs-comment">// 音声の長さ設定</span>
+        <span class="hljs-keyword">try!</span> compositionAudioTrack.insertTimeRange(<span class="hljs-type">CMTimeRangeMake</span>(start: <span class="hljs-type">CMTime</span>.zero, duration: videoAsset.duration), of: audioTrack, at: <span class="hljs-type">CMTime</span>.zero)
+    }
+    <span class="hljs-comment">// 回転方向の設定</span>
+    compositionVideoTrack.preferredTransform <span class="hljs-operator">=</span> videoTrack.preferredTransform
+    <span class="hljs-comment">// 動画のサイズを取得</span>
+    <span class="hljs-keyword">var</span> videoSize: <span class="hljs-type">CGSize</span> <span class="hljs-operator">=</span> videoTrack.naturalSize
+    <span class="hljs-comment">// 動画が縦の場合は「true」で、横の場合には「false」が入る</span>
+    <span class="hljs-keyword">var</span> isPortrait: <span class="hljs-type">Bool</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>
+    <span class="hljs-comment">// ビデオを縦横方向</span>
+    <span class="hljs-keyword">let</span> transform: <span class="hljs-type">CGAffineTransform</span> <span class="hljs-operator">=</span> videoTrack.preferredTransform
+    <span class="hljs-comment">// 動画が縦かどうかを判定する</span>
+    <span class="hljs-keyword">if</span> (transform.a <span class="hljs-operator">==</span> <span class="hljs-number">0</span> <span class="hljs-operator">&#x26;&#x26;</span> transform.d <span class="hljs-operator">==</span> <span class="hljs-number">0</span> <span class="hljs-operator">&#x26;&#x26;</span> (transform.b <span class="hljs-operator">==</span> <span class="hljs-number">1.0</span> <span class="hljs-operator">||</span> transform.b <span class="hljs-operator">==</span> <span class="hljs-operator">-</span><span class="hljs-number">1.0</span>) <span class="hljs-operator">&#x26;&#x26;</span> (transform.c <span class="hljs-operator">==</span> <span class="hljs-number">1.0</span> <span class="hljs-operator">||</span> transform.c <span class="hljs-operator">==</span> <span class="hljs-operator">-</span><span class="hljs-number">1.0</span>)) {
+        <span class="hljs-comment">// 動画が縦の場合</span>
+        isPortrait <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+        <span class="hljs-comment">// 「videoSize」に設定している「高さ」と「幅」を反転させる（デフォルトが横向きのサイズの為）</span>
+        videoSize <span class="hljs-operator">=</span> <span class="hljs-type">CGSize</span>(width: videoSize.height, height: videoSize.width)
+    }
+    <span class="hljs-comment">// 合成用コンポジション作成</span>
+    <span class="hljs-keyword">let</span> videoComp: <span class="hljs-type">AVMutableVideoComposition</span> <span class="hljs-operator">=</span> <span class="hljs-type">AVMutableVideoComposition</span>()
+    videoComp.renderSize <span class="hljs-operator">=</span> videoSize
+    <span class="hljs-comment">// フレームレートの設定</span>
+    <span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> ここの値を調整する事で、動画のフレームレートを落として、容量の削減につながる</span>
+    videoComp.frameDuration <span class="hljs-operator">=</span> <span class="hljs-type">CMTimeMake</span>(value: <span class="hljs-number">1</span>, timescale: <span class="hljs-number">30</span>)
+    <span class="hljs-comment">// インストラクションを合成用コンポジションに設定</span>
+    <span class="hljs-keyword">let</span> instruction: <span class="hljs-type">AVMutableVideoCompositionInstruction</span> <span class="hljs-operator">=</span> <span class="hljs-type">AVMutableVideoCompositionInstruction</span>()
+    instruction.timeRange <span class="hljs-operator">=</span> <span class="hljs-type">CMTimeRangeMake</span>(start: <span class="hljs-type">CMTime</span>.zero, duration: videoAsset.duration)
+    <span class="hljs-keyword">let</span> layerInstruction: <span class="hljs-type">AVMutableVideoCompositionLayerInstruction</span> <span class="hljs-operator">=</span> <span class="hljs-type">AVMutableVideoCompositionLayerInstruction</span>.<span class="hljs-keyword">init</span>(assetTrack: compositionVideoTrack)
+    instruction.layerInstructions <span class="hljs-operator">=</span> [layerInstruction]
+    videoComp.instructions <span class="hljs-operator">=</span> [instruction]
+    <span class="hljs-keyword">if</span> isPortrait {
+        <span class="hljs-comment">// 動画が縦の場合</span>
+        <span class="hljs-comment">// 動画を90％回す（「AVAssetExportSession」を使用する場合には、縦の場合でも横向きで表示される為、90％回す必要がある）</span>
+        <span class="hljs-keyword">let</span> <span class="hljs-type">FirstAssetScaleFactor</span>: <span class="hljs-type">CGAffineTransform</span> <span class="hljs-operator">=</span> <span class="hljs-type">CGAffineTransform</span>(scaleX: <span class="hljs-number">1.0</span>, y: <span class="hljs-number">1.0</span>)
+        layerInstruction.setTransform(videoTrack.preferredTransform.concatenating(<span class="hljs-type">FirstAssetScaleFactor</span>), at: <span class="hljs-type">CMTime</span>.zero)
+    }
+    <span class="hljs-comment">// 動画のコンポジションをベースにAVAssetExportを生成</span>
+    _assetExport <span class="hljs-operator">=</span> <span class="hljs-type">AVAssetExportSession</span>.<span class="hljs-keyword">init</span>(asset: mixComposition, presetName: <span class="hljs-type">AVAssetExportPresetHighestQuality</span>)
+    <span class="hljs-comment">// 合成用コンポジションを設定</span>
+    _assetExport<span class="hljs-operator">?</span>.videoComposition <span class="hljs-operator">=</span> videoComp
+    <span class="hljs-keyword">let</span> exportUrl: <span class="hljs-type">URL</span> <span class="hljs-operator">=</span> videoURL
+    _assetExport<span class="hljs-operator">?</span>.outputFileType <span class="hljs-operator">=</span> <span class="hljs-type">AVFileType</span>.mov
+    _assetExport<span class="hljs-operator">?</span>.outputURL <span class="hljs-operator">=</span> exportUrl
+    _assetExport<span class="hljs-operator">?</span>.shouldOptimizeForNetworkUse <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+    <span class="hljs-comment">// エクスポート実行</span>
+    _assetExport<span class="hljs-operator">?</span>.exportAsynchronously(completionHandler: {() -> <span class="hljs-type">Void</span> <span class="hljs-keyword">in</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>._assetExport<span class="hljs-operator">?</span>.status <span class="hljs-operator">==</span> <span class="hljs-type">AVAssetExportSession</span>.<span class="hljs-type">Status</span>.failed {
+            <span class="hljs-comment">// 失敗した場合</span>
+        }
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>._assetExport<span class="hljs-operator">?</span>.status <span class="hljs-operator">==</span> <span class="hljs-type">AVAssetExportSession</span>.<span class="hljs-type">Status</span>.completed {
+            <span class="hljs-comment">// 成功した場合</span>
+        }
+    })
+}
+</code></pre>
+<p>ちなみに、フレームレートや、サイズなどを変更せずに単に新しい動画にコピーしたい場合には、以下のメソッドを呼び出す事でコピーできます。</p>
+<p>※引数にはコピーする動画のURLを渡してください。</p>
+<pre><code class="hljs language-swift"><span class="hljs-keyword">func</span> <span class="hljs-title function_">compression</span>(<span class="hljs-params">beforeMovieUrl</span>: <span class="hljs-type">URL</span>) {
+    <span class="hljs-keyword">let</span> videoURL: <span class="hljs-type">URL</span> <span class="hljs-operator">=</span> getDocumentsDirectory().appendingPathComponent(<span class="hljs-string">"<span class="hljs-subst">\(Date().millisecondsSince1970)</span>tmpMovie.mov"</span>)
+    <span class="hljs-comment">//アセットの作成</span>
+    <span class="hljs-comment">//動画のアセットとトラックを作成</span>
+    <span class="hljs-keyword">let</span> videoAsset: <span class="hljs-type">AVURLAsset</span> <span class="hljs-operator">=</span> <span class="hljs-type">AVURLAsset</span>(url: beforeMovieUrl, options:<span class="hljs-literal">nil</span>)
+    <span class="hljs-comment">// 動画のコンポジションをベースにAVAssetExportを生成</span>
+    <span class="hljs-keyword">self</span>._assetExport <span class="hljs-operator">=</span> <span class="hljs-type">AVAssetExportSession</span>.<span class="hljs-keyword">init</span>(asset: videoAsset, presetName: <span class="hljs-type">AVAssetExportPresetHighestQuality</span>)
+    <span class="hljs-keyword">let</span> exportUrl: <span class="hljs-type">URL</span> <span class="hljs-operator">=</span> videoURL
+    <span class="hljs-keyword">self</span>._assetExport<span class="hljs-operator">?</span>.outputFileType <span class="hljs-operator">=</span> <span class="hljs-type">AVFileType</span>.mov
+    <span class="hljs-keyword">self</span>._assetExport<span class="hljs-operator">?</span>.outputURL <span class="hljs-operator">=</span> exportUrl
+    <span class="hljs-comment">// エクスポート実行</span>
+    <span class="hljs-keyword">self</span>._assetExport<span class="hljs-operator">?</span>.exportAsynchronously(completionHandler: {() -> <span class="hljs-type">Void</span> <span class="hljs-keyword">in</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>._assetExport<span class="hljs-operator">?</span>.status <span class="hljs-operator">==</span> <span class="hljs-type">AVAssetExportSession</span>.<span class="hljs-type">Status</span>.failed {
+            <span class="hljs-comment">// 失敗した場合</span>
+        }
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>._assetExport<span class="hljs-operator">?</span>.status <span class="hljs-operator">==</span> <span class="hljs-type">AVAssetExportSession</span>.<span class="hljs-type">Status</span>.completed {
+            <span class="hljs-comment">// 成功した場合</span>
+        }
+    })
+}
+</code></pre>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"動画や画像の圧縮【Swift】"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2020-04-24 00:00","data-testid":"article-date","children":"2020年4月24日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","Swift",{"href":"/?tag=Swift","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"Swift"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],"$L14"]}]
+14:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+15:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"動画や画像の圧縮【Swift】 | Tech Note"}],["$","meta","1",{"name":"description","content":"動画や画像の圧縮【Swift】 - Tech Note"}],["$","meta","2",{"name":"keywords","content":"Swift"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-04-24-000000-4"}],["$","meta","5",{"property":"og:title","content":"動画や画像の圧縮【Swift】"}],["$","meta","6",{"property":"og:description","content":"動画や画像の圧縮【Swift】 - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-04-24-000000-4"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2020-04-24 00:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"動画や画像の圧縮【Swift】"}],["$","meta","12",{"name":"twitter:description","content":"動画や画像の圧縮【Swift】 - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L15","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

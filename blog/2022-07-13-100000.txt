@@ -1,0 +1,241 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2022-07-13-100000"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2022-07-13-100000","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2022-07-13-100000","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:T40f6,<p>目次</p>
+<h1>事前準備</h1>
+<p>以下の記事の内容が完了している前提で本記事を記載しています。</p>
+<p>まだの方は、以下から進めてください。</p>
+<p><a href="https://reigle.info/entry/2022/07/12/100000">React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【1/4】 - Reigle 技術ブログ</a></p>
+<h1>ESLintの組み込み</h1>
+<p>以下のコマンドを実行し、ESLintをインストールします。</p>
+<pre><code class="hljs language-javascript">npm install eslint --save-dev
+</code></pre>
+<p>以下のコマンドを実行して、ESLintの初期設定を行います。</p>
+<pre><code class="hljs language-javascript">npm init @eslint/config
+</code></pre>
+<p>以下が表示されるので、「<code>y</code>」を入力してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<pre><code class="hljs language-javascript"><span class="hljs-title class_">Need</span> to install the following <span class="hljs-attr">packages</span>:
+  @eslint/create-config
+<span class="hljs-title class_">Ok</span> to proceed? (y)
+
+=====日本語訳=====
+次のパッケージをインストールする必要があります。
+  @ eslint / create-config
+続行しますか？ （y）
+</code></pre>
+<p>以下が表示されるので、「<code>To check syntax, find problems, and enforce code style</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">How</span> would you like to use <span class="hljs-title class_">ESLint</span>? …
+  <span class="hljs-title class_">To</span> check syntax only
+  <span class="hljs-title class_">To</span> check syntax and find problems
+❯ <span class="hljs-title class_">To</span> check syntax, find problems, and enforce code style
+
+=====日本語訳=====
+？ <span class="hljs-title class_">ESLint</span>をどのように使用しますか？ …
+  構文のみを確認するには
+  構文をチェックして問題を見つけるには
+❯構文をチェックし、問題を見つけ、コードスタイルを適用するには
+</code></pre>
+<p>以下が表示されるので、「<code>JavaScript modules (import/export)</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">What</span> type <span class="hljs-keyword">of</span> modules does your project use? …
+❯ <span class="hljs-title class_">JavaScript</span> <span class="hljs-title function_">modules</span> (<span class="hljs-keyword">import</span>/<span class="hljs-keyword">export</span>)
+  <span class="hljs-title class_">CommonJS</span> (<span class="hljs-built_in">require</span>/<span class="hljs-built_in">exports</span>)
+  <span class="hljs-title class_">None</span> <span class="hljs-keyword">of</span> these
+
+=====日本語訳=====
+？プロジェクトで使用しているモジュールの種類は何ですか？ …
+❯<span class="hljs-title class_">JavaScript</span>モジュール（インポート/エクスポート）
+  <span class="hljs-title class_">CommonJS</span>（必須/エクスポート）
+  どれでもない
+</code></pre>
+<p>以下が表示されるので、「<code>React</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">Which</span> framework does your project use? …
+❯ <span class="hljs-title class_">React</span>
+  <span class="hljs-title class_">Vue</span>.<span class="hljs-property">js</span>
+  <span class="hljs-title class_">None</span> <span class="hljs-keyword">of</span> these
+
+=====日本語訳=====
+？プロジェクトで使用しているフレームワークはどれですか？ …
+❯<span class="hljs-title class_">React</span>
+  <span class="hljs-title class_">Vue</span>.<span class="hljs-property">js</span>
+  どれでもない
+</code></pre>
+<p>以下が表示されるので、「<code>Yes</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">Does</span> your project use <span class="hljs-title class_">TypeScript</span>? › <span class="hljs-title class_">No</span> / <span class="hljs-title class_">Yes</span>
+
+=====日本語訳=====
+？プロジェクトは<span class="hljs-title class_">TypeScript</span>を使用していますか？ > いいえ / はい
+</code></pre>
+<p>以下が表示されるので、「<code>Browser</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">Where</span> does your code run? …  (<span class="hljs-title class_">Press</span> &#x3C;space> to select, &#x3C;a> to toggle all, &#x3C;i> to invert selection)
+✔ <span class="hljs-title class_">Browser</span>
+✔ <span class="hljs-title class_">Node</span>
+
+=====日本語訳=====
+？コードはどこで実行されますか？ …（&#x3C;スペース>を押して選択し、&#x3C;a>を押してすべてを切り替え、&#x3C;i>を押して選択を反転します）
+✔ブラウザ
+✔ノード
+</code></pre>
+<p>以下が表示されるので、「<code>Use a popular style guide</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">How</span> would you like to define a style <span class="hljs-keyword">for</span> your project? …
+❯ <span class="hljs-title class_">Use</span> a popular style guide
+  <span class="hljs-title class_">Answer</span> questions about your style
+
+=====日本語訳=====
+？プロジェクトのスタイルをどのように定義しますか？ …
+❯人気のあるスタイルガイドを使用する
+  あなたのスタイルについての質問に答える
+</code></pre>
+<p>以下が表示されるので、「<code>Airbnb: https://github.com/airbnb/javascript</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<p>※これはどれを選択しても問題ありません。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">Which</span> style guide <span class="hljs-keyword">do</span> you want to follow? …
+❯ <span class="hljs-title class_">Airbnb</span>: <span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/airbnb/javascript</span>
+  <span class="hljs-title class_">Standard</span>: <span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/standard/standard</span>
+  <span class="hljs-title class_">Google</span>: <span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/google/eslint-config-google</span>
+  <span class="hljs-attr">XO</span>: <span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/xojs/eslint-config-xo</span>
+
+=====日本語訳=====
+？どのスタイルガイドに従いたいですか？ …
+❯<span class="hljs-title class_">Airbnb</span>：<span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/airbnb/javascript</span>
+  標準：https：<span class="hljs-comment">//github.com/standard/standard</span>
+  <span class="hljs-title class_">Google</span>：<span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/google/eslint-config-google</span>
+  <span class="hljs-variable constant_">XO</span>：<span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/xojs/eslint-config-xo</span>
+</code></pre>
+<p>以下が表示されるので、「<code>JavaScript</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<p>※これはどれを選択しても問題ありません。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">What</span> format <span class="hljs-keyword">do</span> you want your config file to be <span class="hljs-keyword">in</span>? …
+❯ <span class="hljs-title class_">JavaScript</span>
+  <span class="hljs-variable constant_">YAML</span>
+  <span class="hljs-title class_">JSON</span>
+
+=====日本語訳=====
+？設定ファイルをどのような形式にしますか？ …
+❯<span class="hljs-title class_">JavaScript</span>
+  <span class="hljs-variable constant_">YAML</span>
+  <span class="hljs-title class_">JSON</span>
+</code></pre>
+<p>以下が表示されるので、「<code>Yes</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<p>※環境や時期などによって表示内容が相違するかもしれませんが、必要なライブラリのインストールの確認なので、Yesで大丈夫です。</p>
+<pre><code class="hljs language-javascript">eslint-plugin-react@^<span class="hljs-number">7.28</span><span class="hljs-number">.0</span> @typescript-eslint/eslint-plugin@latest eslint-config-airbnb@latest eslint@^<span class="hljs-number">7.32</span><span class="hljs-number">.0</span> || ^<span class="hljs-number">8.2</span><span class="hljs-number">.0</span> eslint-plugin-<span class="hljs-keyword">import</span>@^<span class="hljs-number">2.25</span><span class="hljs-number">.3</span> eslint-plugin-jsx-a11y@^<span class="hljs-number">6.5</span><span class="hljs-number">.1</span> eslint-plugin-react-hooks@^<span class="hljs-number">4.3</span><span class="hljs-number">.0</span> @typescript-eslint/parser@latest
+? <span class="hljs-title class_">Would</span> you like to install them now? › <span class="hljs-title class_">No</span> / <span class="hljs-title class_">Yes</span>
+
+=====日本語訳=====
+eslint-plugin-react @ ^ <span class="hljs-number">7.28</span><span class="hljs-number">.0</span> @ typescript-eslint / eslint-plugin @ latest eslint-config-airbnb @ latest eslint @ ^ <span class="hljs-number">7.32</span><span class="hljs-number">.0</span> || ^ <span class="hljs-number">8.2</span><span class="hljs-number">.0</span> eslint-plugin-<span class="hljs-keyword">import</span> @ ^ <span class="hljs-number">2.25</span><span class="hljs-number">.3</span> eslint-plugin-jsx-a11y @ ^ <span class="hljs-number">6.5</span><span class="hljs-number">.1</span> eslint-plugin-react-hooks @ ^ <span class="hljs-number">4.3</span><span class="hljs-number">.0</span> @ typescript-eslint / parser @ latest
+？今すぐインストールしますか？ > いいえ / はい
+</code></pre>
+<p>以下が表示されるので、「<code>npm</code>」を選択してエンターを押下します。</p>
+<p>※「<code>日本語訳</code>」以下はターミナルには表示されない項目です。</p>
+<p>※これはどれを選択しても問題ありませんが、npmでまとめておいた方がいいかと思います。</p>
+<pre><code class="hljs language-javascript">? <span class="hljs-title class_">Which</span> package manager <span class="hljs-keyword">do</span> you want to use? …
+❯ npm
+  yarn
+  pnpm
+
+=====日本語訳=====
+
+？どのパッケージマネージャーを使用しますか？ …
+❯npm
+  yarn
+  pnpm
+</code></pre>
+<p>ここまでのソースコードは以下のGitHubにアップしています。</p>
+<p><a href="https://github.com/Reigle/react-typescript-template/tree/template_2">https://github.com/Reigle/react-typescript-template/tree/template_2</a></p>
+<h1>ESLintの設定ファイルに任意の設定を行う</h1>
+<p>「<code>.eslintrc.js</code>」の内容を以下の様に修正する
+これで、TypeScriptの設定や、<code>node_module</code>や<code>public</code>などをチェック対象外にする設定などが含まれています。
+それぞれ、設定の追加などは各自で実施してください。</p>
+<pre><code class="hljs language-javascript"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = {
+  <span class="hljs-string">"env"</span>: {
+    <span class="hljs-string">"browser"</span>: <span class="hljs-literal">true</span>,
+    <span class="hljs-string">"es2021"</span>: <span class="hljs-literal">true</span>
+  },
+  <span class="hljs-string">"extends"</span>: [
+    <span class="hljs-string">"eslint:recommended"</span>,
+    <span class="hljs-string">"plugin:react/recommended"</span>,
+    <span class="hljs-string">"plugin:@typescript-eslint/recommended"</span>,
+  ],
+  <span class="hljs-string">"parser"</span>: <span class="hljs-string">"@typescript-eslint/parser"</span>,
+  <span class="hljs-string">"parserOptions"</span>: {
+    <span class="hljs-string">"ecmaFeatures"</span>: {
+      <span class="hljs-string">"jsx"</span>: <span class="hljs-literal">true</span>
+    },
+    <span class="hljs-string">"ecmaVersion"</span>: <span class="hljs-string">"latest"</span>,
+    <span class="hljs-string">"sourceType"</span>: <span class="hljs-string">"module"</span>
+  },
+  <span class="hljs-string">"plugins"</span>: [
+    <span class="hljs-string">"react"</span>,
+    <span class="hljs-string">"react-hooks"</span>,
+    <span class="hljs-string">"@typescript-eslint"</span>
+  ],
+  <span class="hljs-string">"rules"</span>: {
+  },
+  <span class="hljs-string">"overrides"</span>: [
+    {
+        <span class="hljs-string">"files"</span>: [<span class="hljs-string">"**/*.tsx"</span>],
+        <span class="hljs-string">"rules"</span>: {
+            <span class="hljs-string">"react/prop-types"</span>: <span class="hljs-string">"off"</span>
+        }
+    }
+  ],
+  <span class="hljs-string">"settings"</span>: {
+    <span class="hljs-string">"react"</span>: {
+      <span class="hljs-string">"version"</span>: <span class="hljs-string">"detect"</span>
+    },
+  },
+  <span class="hljs-string">"ignorePatterns"</span>: [
+    <span class="hljs-string">"**/public/*"</span>,
+    <span class="hljs-string">"**/node_modules/*"</span>,
+    <span class="hljs-string">"**/.vscode/*"</span>,
+    <span class="hljs-string">".eslintrc.js"</span>,
+  ],
+}
+</code></pre>
+<h1>コマンドでESLintのチェックを行う</h1>
+<p>以下のコマンドを実行する事で、「<code>src</code>」ディレクトリ配下の全てのファイルをESLintでチェックできる。</p>
+<pre><code class="hljs language-javascript">./node_modules/.<span class="hljs-property">bin</span>/eslint ./src/.
+</code></pre>
+<h1>VSCodeでESLintのチェックを起動する</h1>
+<p>VSCode の拡張機能の「ESLint」をインストールする</p>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint</a></p>
+<p>プロジェクトのルートに「<code>.vscode</code>」ディレクトリを作成し、その配下に「<code>settings.json</code>」を作成する。</p>
+<p>「<code>settings.json</code>」の内容は以下とする。</p>
+<pre><code class="hljs language-javascript">{
+    <span class="hljs-string">"eslint.validate"</span>: [
+        <span class="hljs-string">"javascript"</span>,
+        <span class="hljs-string">"javascriptreact"</span>,
+        <span class="hljs-string">"typescript"</span>,
+        <span class="hljs-string">"typescriptreact"</span>
+    ]
+}
+</code></pre>
+<p>本記事の全ての内容（VSCodeの設定など）を含んだソースコードは以下のGitHubにアップしています。</p>
+<p><a href="https://github.com/Reigle/react-typescript-template/tree/template_3">https://github.com/Reigle/react-typescript-template/tree/template_3</a></p>
+<p>続きは以下の記事です。</p>
+<p><a href="https://reigle.info/entry/2022/07/14/100000">React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【3/4】 - Reigle 技術ブログ</a></p>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【2/4】"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2022-07-13 10:00","data-testid":"article-date","children":"2022年7月13日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","React",{"href":"/?tag=React","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"React"}],["$","$L12","TypeScript",{"href":"/?tag=TypeScript","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"TypeScript"}],["$","$L12","Docker",{"href":"/?tag=Docker","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"Docker"}],["$","$L12","ESLint",{"href":"/?tag=ESLint","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"ESLint"}],["$","$L12","Prettier",{"href":"/?tag=Prettier","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"Prettier"}],["$","$L12","WebPack",{"href":"/?tag=WebPack","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"WebPack"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],"$L14"]}]
+14:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+15:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【2/4】 | Tech Note"}],["$","meta","1",{"name":"description","content":"React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【2/4】 - Tech Note"}],["$","meta","2",{"name":"keywords","content":"React,TypeScript,Docker,ESLint,Prettier,WebPack"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2022-07-13-100000"}],["$","meta","5",{"property":"og:title","content":"React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【2/4】"}],["$","meta","6",{"property":"og:description","content":"React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【2/4】 - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2022-07-13-100000"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2022-07-13 10:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【2/4】"}],["$","meta","12",{"name":"twitter:description","content":"React(TypeScript)プロジェクトの作成方法（Docker、ESLint、Prettier、WebPack）【2/4】 - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L15","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

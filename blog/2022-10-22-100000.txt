@@ -1,0 +1,78 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2022-10-22-100000"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2022-10-22-100000","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2022-10-22-100000","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:T14f9,<h1>事前準備</h1>
+<p>Slack Appを作成していない方は、以下の記事を参考にSlack Appを作成してください。</p>
+<p><a href="https://reigle.info/entry/2022/10/19/100000">https://reigle.info/entry/2022/10/19/100000</a><a href="https://reigle.info/entry/2022/10/19/100000">reigle.info</a></p>
+<p>以下の記事を参考にSlack Appの「<code>OAuth Tokens for Your Workspace</code>」を生成しておいてください。</p>
+<p><a href="https://reigle.info/entry/2022/10/21/100000">https://reigle.info/entry/2022/10/21/100000</a><a href="https://reigle.info/entry/2022/10/21/100000">reigle.info</a></p>
+<h1>権限の追加</h1>
+<p>以下の記事を参考に、「<code>chat:write</code>」「<code>im:write</code>」の権限を追加します。</p>
+<p><a href="https://reigle.info/entry/2022/10/20/100000">https://reigle.info/entry/2022/10/20/100000</a><a href="https://reigle.info/entry/2022/10/20/100000">reigle.info</a></p>
+<h1>DMの送り先のメンバーIDの確認方法</h1>
+<p>Slackアプリから、該当のメンバーのプロフィールを開き（ユーザーアイコンなどを押下する事で開く事ができます）、その他のメニューを押下する。</p>
+<p><img src="/images/2022-10-22-100000/20221017125223.png" alt=""></p>
+<p>「<code>メンバーIDをコピー</code>」を押下する。</p>
+<p><img src="/images/2022-10-22-100000/20221017125319.png" alt=""></p>
+<p>クリップボードにメンバーIDがコピーされているので、任意のテキストエディタなどで「command + v」を押下して貼り付けると、メンバーIDが確認できる。</p>
+<h1>GASでDMを送信する方法</h1>
+<p>「Google Apps Script」を開き、以下を貼り付ける。</p>
+<pre><code class="hljs language-JavaScript"><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">BOT_USER_OAUTH_TOKEN</span> = <span class="hljs-string">"xoxb-XXXXXX"</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MEMBER_ID</span> = <span class="hljs-string">"XXXXXX"</span>
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">MESSAGE</span> = <span class="hljs-string">"テスト１"</span>
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">slackPostDM</span>(<span class="hljs-params"></span>) {
+  <span class="hljs-keyword">const</span> message_options = {
+    <span class="hljs-string">"method"</span> : <span class="hljs-string">"post"</span>,
+    <span class="hljs-string">"contentType"</span>: <span class="hljs-string">"application/x-www-form-urlencoded"</span>,
+    <span class="hljs-string">"payload"</span> : {
+      <span class="hljs-string">"token"</span>: <span class="hljs-variable constant_">BOT_USER_OAUTH_TOKEN</span>,
+      <span class="hljs-string">"channel"</span>: <span class="hljs-title function_">slackGetChannelID_</span>(<span class="hljs-variable constant_">MEMBER_ID</span>),
+      <span class="hljs-string">"text"</span>: <span class="hljs-variable constant_">MESSAGE</span>
+    }
+  };
+
+  <span class="hljs-title class_">UrlFetchApp</span>.<span class="hljs-title function_">fetch</span>(<span class="hljs-string">'https://slack.com/api/chat.postMessage'</span>, message_options);
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">slackGetChannelID_</span>(<span class="hljs-params">member_id</span>) {
+  <span class="hljs-keyword">const</span> options = {
+    <span class="hljs-string">"method"</span> : <span class="hljs-string">"post"</span>,
+    <span class="hljs-string">"contentType"</span>: <span class="hljs-string">"application/x-www-form-urlencoded"</span>,
+    <span class="hljs-string">"payload"</span> : {
+      <span class="hljs-string">"token"</span>: <span class="hljs-variable constant_">BOT_USER_OAUTH_TOKEN</span>,
+      <span class="hljs-string">"users"</span>: member_id
+    }
+  }
+
+  <span class="hljs-keyword">const</span> response = <span class="hljs-title class_">UrlFetchApp</span>.<span class="hljs-title function_">fetch</span>(<span class="hljs-string">'https://slack.com/api/conversations.open'</span>, options);
+  <span class="hljs-keyword">const</span> obj = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(response);
+
+  <span class="hljs-keyword">return</span> obj.<span class="hljs-property">channel</span>.<span class="hljs-property">id</span>;
+}
+</code></pre>
+<p>定数の内容はそれぞれ以下を参考に書き換えてください。</p>
+<p>「<code>BOT_USER_OAUTH_TOKEN</code>」には、「<code>事前準備</code>」に記載の「<code>OAuth Tokens for Your Workspace</code>」で生成したTokenを貼り付けてください。</p>
+<p>「<code>MEMBER_ID</code>」には、「<code>DMの送り先のメンバーIDの確認方法</code>」で取得したメンバーIDを貼り付けてください。</p>
+<p>「<code>MESSAGE</code>」には、送信するメッセージを任意で記載してください。</p>
+<p>「<code>slackPostDM</code>」関数を実行した結果、SlackのサイドメニューにAppが表示され、開くとメッセージが届いているれば成功です。</p>
+<p><img src="/images/2022-10-22-100000/20221017130220.png" alt=""></p>
+<p><img src="/images/2022-10-22-100000/20221017130227.png" alt=""></p>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"GASでSlackAPIを使用してSlack AppのBotからDMを送信する方法"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2022-10-22 10:00","data-testid":"article-date","children":"2022年10月22日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","Slack",{"href":"/?tag=Slack","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"Slack"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],"$L14"]}]
+14:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+15:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"GASでSlackAPIを使用してSlack AppのBotからDMを送信する方法 | Tech Note"}],["$","meta","1",{"name":"description","content":"GASでSlackAPIを使用してSlack AppのBotからDMを送信する方法 - Tech Note"}],["$","meta","2",{"name":"keywords","content":"Slack"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2022-10-22-100000"}],["$","meta","5",{"property":"og:title","content":"GASでSlackAPIを使用してSlack AppのBotからDMを送信する方法"}],["$","meta","6",{"property":"og:description","content":"GASでSlackAPIを使用してSlack AppのBotからDMを送信する方法 - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2022-10-22-100000"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2022-10-22 10:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"GASでSlackAPIを使用してSlack AppのBotからDMを送信する方法"}],["$","meta","12",{"name":"twitter:description","content":"GASでSlackAPIを使用してSlack AppのBotからDMを送信する方法 - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L15","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

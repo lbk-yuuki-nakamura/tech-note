@@ -1,0 +1,372 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2020-04-26-000000-3"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2020-04-26-000000-3","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2020-04-26-000000-3","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:T525e,<h1>◾️はじめに</h1>
+<p>データを永続的に保存する方法で、数々の方法があります。</p>
+<p>以下に一例を挙げます。</p>
+<p>・NSUserDefaults</p>
+<p>・CoreData</p>
+<p>・SQLite</p>
+<p>・Realm</p>
+<p>ここでは、「SQLite」に関して記載します。</p>
+<p>※SQL文に関しては、簡単なサンプルや記載方法は記載するが細かい部分は別途調査する事。</p>
+<h1>◾️SQLiteとは</h1>
+<p>SQLiteとは、数あるSQLの中の一つです。</p>
+<p>※ちなみに、SQLとはDB（データベース）を定義したり操作したりするプログラミング言語です。</p>
+<p>SQLiteの特徴として、他のSQL（MySQL,Oracleなど）と違い、DBをファイル形式で保持する事ができます。</p>
+<p>※他のSQL（MySQL,Oracleなど）のほとんどは、サーバー上にDBを保持します。</p>
+<p>上記の特徴があるため、ローカルにDBファイルを保存しておく事で、サーバーへ接続する必要がなくなるメリットがあります。</p>
+<h1>◾️SQLiteのインポート</h1>
+<p>SwiftでSQLiteを使用する為に、便利なライブラリが色々とありますが</p>
+<p>ライブラリを使用したくない場合もありますよね。（現場の方針など。。。）</p>
+<p>ここでは、ライブラリを使用しないSQLiteの操作を記載します。</p>
+<p>まずは、SQLiteを操作する為に以下をインポートします。</p>
+<p>※SQLiteの操作をするクラスでは必ずインポートしてください。</p>
+<p>ソースコードを記載する前に、「Linked Frameworks and Libraries」に「libsqlite3.0.tbd」を追加する必要がある。</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-keyword">@import</span> SQLite3;
+</code></pre>
+<h1>◾️DBファイルの定義</h1>
+<p>「SQLiteとは」で説明した通り、SQLiteはDBをファイル形式で保持しています。</p>
+<p>そのため、まずはDBファイルを生成する必要があります。</p>
+<p>まずは、フィールド変数に、以下を定義してください。
+※都度定義するのが手間なので、まとめて。</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">// SQLiteのファイル名</span>
+<span class="hljs-built_in">NSString</span> *dataFileName;
+<span class="hljs-comment">// SQLiteのファイルまでのフルパス</span>
+<span class="hljs-built_in">NSString</span> *dataFileFullPath;
+<span class="hljs-comment">// 開いているSQLiteファイルのインスタンス</span>
+sqlite3 *sqlax;
+</code></pre>
+<p>上記を定義したら、SQLiteの物理ファイルを生成します。
+以下のメソッドを定義して、呼び出してください。</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">/**
+ * SQLiteの物理ファイルの作成
+ */</span>
+-(<span class="hljs-type">void</span>)preparationOfPhysicalDiles {
+    <span class="hljs-comment">// 1.【物理ファイルを準備します】</span>
+    dataFileName = <span class="hljs-string">@"unkolist.sqlite3"</span>;
+
+    <span class="hljs-comment">// 使用可能なファイルパスを全て取得する</span>
+    <span class="hljs-built_in">NSArray</span> *availablePats = <span class="hljs-built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="hljs-built_in">NSDocumentDirectory</span>, <span class="hljs-built_in">NSUserDomainMask</span>, <span class="hljs-literal">YES</span>);
+    <span class="hljs-comment">// 最初のものを使用する</span>
+    <span class="hljs-built_in">NSString</span> *dir = [availablePats objectAtIndex:<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// ファイルマネージャを召還する</span>
+    <span class="hljs-built_in">NSFileManager</span> *myFM = [<span class="hljs-built_in">NSFileManager</span> defaultManager];
+    <span class="hljs-comment">// 物理ファイルって既にありますか？</span>
+    dataFileFullPath = [dir stringByAppendingPathComponent:dataFileName];
+    <span class="hljs-type">BOOL</span> fileExists = [myFM fileExistsAtPath:dataFileFullPath];
+    <span class="hljs-comment">// 無い場合はつくる</span>
+    <span class="hljs-keyword">if</span> (! fileExists) {
+        <span class="hljs-type">BOOL</span> isSuccessfullyCreated = [myFM createFileAtPath:dataFileFullPath contents:<span class="hljs-literal">nil</span> attributes:<span class="hljs-literal">nil</span>];
+        <span class="hljs-keyword">if</span> (! isSuccessfullyCreated) {
+            <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"新規ファイル作成に失敗しました=>%@"</span>, dataFileFullPath);
+        }
+    }
+}
+</code></pre>
+<p>ここまでの下準備ができたら、以下のメソッドを実行し、SQLiteを開きます。
+※テーブル作成などを行う前に、一番最初に実行する必要があります。</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">/**
+ * SQLiteを開くメソッド（※SQLの実行前には呼んでおく必要がある。）
+ */</span>
+-(<span class="hljs-type">void</span>)openSQLite {
+    <span class="hljs-type">BOOL</span> isSuccessfullyOpened = sqlite3_open([dataFileFullPath UTF8String], &#x26;sqlax);
+    <span class="hljs-keyword">if</span> (isSuccessfullyOpened != SQLITE_OK) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"sqlite開けませんでした！=> %s"</span>, sqlite3_errmsg(sqlax));
+    }
+}
+</code></pre>
+<p>これで、SQLiteを開く事ができたので、以降でDBの操作をします。</p>
+<h1>◾️Table作成（CREATE TABLE）</h1>
+<p>ここでは、テーブルの作成方法を記載します。</p>
+<p>以下のメソッドを実行する事で、Tableの作成が可能です。</p>
+<p>※以下のメソッドに記載しているSQL文は各自書き換えてください。</p>
+<p>【テーブル作成のSQLの基本の記載方法】
+CREATE TABLE [テーブル名] ([カラム名] [データ型], [カラム名] [データ型] ・・・)</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">/**
+ * テーブル作成処理
+ */</span>
+-(<span class="hljs-type">void</span>)createTable {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-comment">// CREATE TABLE文 （「IF NOT EXISTS」を書くことで、既に作成されている場合には処理しない）</span>
+    <span class="hljs-built_in">NSString</span> *query = <span class="hljs-string">@"CREATE TABLE IF NOT EXISTS sampleTable (name TEXT)"</span>;
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    sqlite3_step(statement);
+    sqlite3_finalize(statement);
+}
+</code></pre>
+<h1>◾️カラムの登録（INSERT）</h1>
+<p>ここでは、カラムの登録方法を記載します。</p>
+<p>以下のメソッドを実行する事で、カラムの登録が可能です。</p>
+<p>※以下のメソッドに記載しているSQL文は各自書き換えてください。</p>
+<p>【カラムの登録のSQLの基本の記載方法】
+INSERT INTO [テーブル名] ([カラム名], [カラム名]・・・) VALUES ([データ], [データ]・・・)</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">/**
+ * データの追加処理
+ */</span>
+-(<span class="hljs-type">void</span>)insertData: (<span class="hljs-built_in">NSString</span>*) name {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-comment">// INSERT</span>
+    <span class="hljs-built_in">NSString</span> *query = [<span class="hljs-built_in">NSString</span> stringWithFormat:<span class="hljs-string">@"INSERT INTO sampleTable (name) VALUES (\"%@\")"</span>, name];
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    sqlite3_step(statement);
+    sqlite3_finalize(statement);
+}
+</code></pre>
+<h1>◾️データの取得（SELECT）</h1>
+<p>ここでは、データの取得方法を記載します。</p>
+<p>以下のメソッドを実行する事で、データの取得が可能です。</p>
+<p>※以下のメソッドに記載しているSQL文は各自書き換えてください。</p>
+<p>※取得したレコードのループ処理は各自書き換えてください。</p>
+<p>【データの取得のSQLの基本の記載方法】
+SELECT * FROM [テーブル名]</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">/**
+ * データの検索処理
+ */</span>
+-(<span class="hljs-type">void</span>)selectData {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-built_in">NSString</span> *query = <span class="hljs-string">@"SELECT name FROM sampleTable"</span>;
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    <span class="hljs-keyword">while</span> (sqlite3_step(statement) == SQLITE_ROW) {
+        <span class="hljs-type">char</span> *ownerNameChars = (<span class="hljs-type">char</span> *) sqlite3_column_text(statement,<span class="hljs-number">0</span>);
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"Found : %s"</span>, ownerNameChars);
+    }
+    sqlite3_finalize(statement);
+}
+</code></pre>
+<h1>◾️データの更新（UPDATE）</h1>
+<p>ここでは、データの更新方法を記載します。</p>
+<p>以下のメソッドを実行する事で、データの更新が可能です。</p>
+<p>※以下のメソッドに記載しているSQL文は各自書き換えてください。</p>
+<p>【データの更新のSQLの基本の記載方法】
+UPDATE [テーブル名] SET [カラム名] = [データ] WHERE [カラム名] = [データ]</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">/**
+ * データの更新処理
+ */</span>
+-(<span class="hljs-type">void</span>)updateData {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-comment">// UPDATE</span>
+    <span class="hljs-built_in">NSString</span> *query = [<span class="hljs-built_in">NSString</span> stringWithFormat:<span class="hljs-string">@"UPDATE sampleTable SET name = \"KONBANWA\" WHERE name = \"HELLO\""</span>];
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    sqlite3_step(statement);
+    sqlite3_finalize(statement);
+}
+</code></pre>
+<h1>◾️データの削除（DELETE）</h1>
+<p>ここでは、データの削除方法を記載します。</p>
+<p>以下のメソッドを実行する事で、データの削除が可能です。</p>
+<p>※以下のメソッドに記載しているSQL文は各自書き換えてください。</p>
+<p>【データの削除のSQLの基本の記載方法】
+DELETE FROM [テーブル名] WHERE [カラム名] = [データ]</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">/**
+ * データの削除処理
+ */</span>
+-(<span class="hljs-type">void</span>)deleteData {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-comment">// DELETE</span>
+    <span class="hljs-built_in">NSString</span> *query = [<span class="hljs-built_in">NSString</span> stringWithFormat:<span class="hljs-string">@"DELETE FROM sampleTable WHERE name = \"HELLOHELLO\""</span>];
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    sqlite3_step(statement);
+    sqlite3_finalize(statement);
+}
+</code></pre>
+<h1>◾️SQLiteを閉じる</h1>
+<p>以下のメソッドを実行する事で、SQLiteを閉じる事ができます。
+SQLの処理が終わって、不要になれば閉じるようにしましょう。</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-comment">/**
+ * SQLiteを閉じるメソッド（※SQLの実行後に呼ぶ必要がある。）
+ */</span>
+-(<span class="hljs-type">void</span>)closeSQLite {
+    <span class="hljs-comment">// SQLiteを閉じる</span>
+    sqlite3_close(sqlax);
+}
+</code></pre>
+<h1>◾️さいごに</h1>
+<p>色々と、書きましたが、私が動作確認で実行したソースを以下に記載しておきます。</p>
+<pre><code class="hljs language-objectivec"><span class="hljs-meta">#import <span class="hljs-string">"SQLiteViewController.h"</span></span>
+<span class="hljs-keyword">@import</span> SQLite3;
+
+<span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">SQLiteViewController</span> () </span>{
+    <span class="hljs-comment">// SQLiteのファイル名</span>
+    <span class="hljs-built_in">NSString</span> *dataFileName;
+    <span class="hljs-comment">// SQLiteのファイルまでのフルパス</span>
+    <span class="hljs-built_in">NSString</span> *dataFileFullPath;
+    <span class="hljs-comment">// 開いているSQLiteファイルのインスタンス</span>
+    sqlite3 *sqlax;
+}
+
+<span class="hljs-keyword">@end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">SQLiteViewController</span></span>
+
+- (<span class="hljs-type">void</span>)viewDidLoad {
+    [<span class="hljs-variable language_">super</span> viewDidLoad];
+
+    <span class="hljs-comment">// SQLiteの物理ファイルの生成</span>
+    [<span class="hljs-keyword">self</span> preparationOfPhysicalDiles];
+    <span class="hljs-comment">// SQLiteを開く</span>
+    [<span class="hljs-keyword">self</span> openSQLite];
+
+    <span class="hljs-comment">// テストでいくつかのSQLを実行する</span>
+    [<span class="hljs-keyword">self</span> test];
+
+    <span class="hljs-comment">// SQLiteを閉じる</span>
+    [<span class="hljs-keyword">self</span> closeSQLite];
+}
+
+<span class="hljs-comment">/**
+ * テストで適当なSQLを実行する
+ */</span>
+-(<span class="hljs-type">void</span>)test {
+    <span class="hljs-comment">// CREATE TABLE</span>
+    [<span class="hljs-keyword">self</span> createTable];
+
+    <span class="hljs-comment">// INSERT</span>
+    [<span class="hljs-keyword">self</span> insertData:<span class="hljs-string">@"HELLO"</span>];
+    [<span class="hljs-keyword">self</span> insertData:<span class="hljs-string">@"HELLOHELLO"</span>];
+    [<span class="hljs-keyword">self</span> insertData:<span class="hljs-string">@"HELLOHELLOHELLO"</span>];
+
+    <span class="hljs-comment">// UPDATE</span>
+    [<span class="hljs-keyword">self</span> updateData];
+
+    <span class="hljs-comment">// DELETE</span>
+    [<span class="hljs-keyword">self</span> deleteData];
+
+    <span class="hljs-comment">// SELECT</span>
+    [<span class="hljs-keyword">self</span> selectData];
+}
+
+<span class="hljs-comment">/**
+ * SQLiteの物理ファイルの作成
+ */</span>
+-(<span class="hljs-type">void</span>)preparationOfPhysicalDiles {
+    <span class="hljs-comment">// 1.【物理ファイルを準備します】</span>
+    dataFileName = <span class="hljs-string">@"unkolist.sqlite3"</span>;
+
+    <span class="hljs-comment">// 使用可能なファイルパスを全て取得する</span>
+    <span class="hljs-built_in">NSArray</span> *availablePats = <span class="hljs-built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="hljs-built_in">NSDocumentDirectory</span>, <span class="hljs-built_in">NSUserDomainMask</span>, <span class="hljs-literal">YES</span>);
+    <span class="hljs-comment">// 最初のものを使用する</span>
+    <span class="hljs-built_in">NSString</span> *dir = [availablePats objectAtIndex:<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// ファイルマネージャを召還する</span>
+    <span class="hljs-built_in">NSFileManager</span> *myFM = [<span class="hljs-built_in">NSFileManager</span> defaultManager];
+    <span class="hljs-comment">// 物理ファイルって既にありますか？</span>
+    dataFileFullPath = [dir stringByAppendingPathComponent:dataFileName];
+    <span class="hljs-type">BOOL</span> fileExists = [myFM fileExistsAtPath:dataFileFullPath];
+    <span class="hljs-comment">// 無い場合はつくる</span>
+    <span class="hljs-keyword">if</span> (! fileExists) {
+        <span class="hljs-type">BOOL</span> isSuccessfullyCreated = [myFM createFileAtPath:dataFileFullPath contents:<span class="hljs-literal">nil</span> attributes:<span class="hljs-literal">nil</span>];
+        <span class="hljs-keyword">if</span> (! isSuccessfullyCreated) {
+            <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"新規ファイル作成に失敗しました=>%@"</span>, dataFileFullPath);
+        }
+    }
+}
+
+<span class="hljs-comment">/**
+ * SQLiteを開くメソッド（※SQLの実行前には呼んでおく必要がある。）
+ */</span>
+-(<span class="hljs-type">void</span>)openSQLite {
+    <span class="hljs-type">BOOL</span> isSuccessfullyOpened = sqlite3_open([dataFileFullPath UTF8String], &#x26;sqlax);
+    <span class="hljs-keyword">if</span> (isSuccessfullyOpened != SQLITE_OK) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"sqlite開けませんでした！=> %s"</span>, sqlite3_errmsg(sqlax));
+    }
+}
+
+<span class="hljs-comment">/**
+ * SQLiteを閉じるメソッド（※SQLの実行後に呼ぶ必要がある。）
+ */</span>
+-(<span class="hljs-type">void</span>)closeSQLite {
+    <span class="hljs-comment">// SQLiteを閉じる</span>
+    sqlite3_close(sqlax);
+}
+
+<span class="hljs-comment">/**
+ * テーブル作成処理
+ */</span>
+-(<span class="hljs-type">void</span>)createTable {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-comment">// CREATE TABLE文 （「IF NOT EXISTS」を書くことで、既に作成されている場合には処理しない）</span>
+    <span class="hljs-built_in">NSString</span> *query = <span class="hljs-string">@"CREATE TABLE IF NOT EXISTS sampleTable (name TEXT)"</span>;
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    sqlite3_step(statement);
+    sqlite3_finalize(statement);
+}
+
+<span class="hljs-comment">/**
+ * データの追加処理
+ */</span>
+-(<span class="hljs-type">void</span>)insertData: (<span class="hljs-built_in">NSString</span>*) name {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-comment">// INSERT</span>
+    <span class="hljs-built_in">NSString</span> *query = [<span class="hljs-built_in">NSString</span> stringWithFormat:<span class="hljs-string">@"INSERT INTO sampleTable (name) VALUES (\"%@\")"</span>, name];
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    sqlite3_step(statement);
+    sqlite3_finalize(statement);
+}
+
+<span class="hljs-comment">/**
+ * データの更新処理
+ */</span>
+-(<span class="hljs-type">void</span>)updateData {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-comment">// UPDATE</span>
+    <span class="hljs-built_in">NSString</span> *query = [<span class="hljs-built_in">NSString</span> stringWithFormat:<span class="hljs-string">@"UPDATE sampleTable SET name = \"KONBANWA\" WHERE name = \"HELLO\""</span>];
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    sqlite3_step(statement);
+    sqlite3_finalize(statement);
+}
+
+<span class="hljs-comment">/**
+ * データの削除処理
+ */</span>
+-(<span class="hljs-type">void</span>)deleteData {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-comment">// DELETE</span>
+    <span class="hljs-built_in">NSString</span> *query = [<span class="hljs-built_in">NSString</span> stringWithFormat:<span class="hljs-string">@"DELETE FROM sampleTable WHERE name = \"HELLOHELLO\""</span>];
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    sqlite3_step(statement);
+    sqlite3_finalize(statement);
+}
+
+<span class="hljs-comment">/**
+ * データの検索処理
+ */</span>
+-(<span class="hljs-type">void</span>)selectData {
+    sqlite3_stmt *statement;
+
+    <span class="hljs-built_in">NSString</span> *query = <span class="hljs-string">@"SELECT name FROM sampleTable"</span>;
+    sqlite3_prepare_v2(sqlax, [query UTF8String], <span class="hljs-number">-1</span>, &#x26;statement, <span class="hljs-literal">nil</span>);
+    <span class="hljs-keyword">while</span> (sqlite3_step(statement) == SQLITE_ROW) {
+        <span class="hljs-type">char</span> *ownerNameChars = (<span class="hljs-type">char</span> *) sqlite3_column_text(statement,<span class="hljs-number">0</span>);
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@"Found : %s"</span>, ownerNameChars);
+    }
+    sqlite3_finalize(statement);
+}
+<span class="hljs-keyword">@end</span>
+</code></pre>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"SQLiteの使用方法【Objective-C】"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2020-04-26 00:00","data-testid":"article-date","children":"2020年4月26日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","Objective-C",{"href":"/?tag=Objective-C","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"Objective-C"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],"$L14"]}]
+14:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+15:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"SQLiteの使用方法【Objective-C】 | Tech Note"}],["$","meta","1",{"name":"description","content":"SQLiteの使用方法【Objective-C】 - Tech Note"}],["$","meta","2",{"name":"keywords","content":"Objective-C"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-04-26-000000-3"}],["$","meta","5",{"property":"og:title","content":"SQLiteの使用方法【Objective-C】"}],["$","meta","6",{"property":"og:description","content":"SQLiteの使用方法【Objective-C】 - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-04-26-000000-3"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2020-04-26 00:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"SQLiteの使用方法【Objective-C】"}],["$","meta","12",{"name":"twitter:description","content":"SQLiteの使用方法【Objective-C】 - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L15","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

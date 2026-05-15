@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://lbk-yuuki-nakamura.github.io/tech-note/sitemap.xml

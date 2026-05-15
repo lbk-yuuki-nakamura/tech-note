@@ -1,0 +1,139 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2020-05-13-200000"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2020-05-13-200000","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2020-05-13-200000","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:T1082,<h1>もくじ</h1>
+<h1>■はじめに</h1>
+<p>fastlaneの環境構築はできている前提で記載しています。</p>
+<p>AppStoreへのリリースビルドのlaneの解説です。</p>
+<h1>■手順</h1>
+<h2>fastlaneの生成</h2>
+<p>cdコマンドでプロジェクトのディレクトリをカレントディレクトリにする。</p>
+<p>以下のコマンドで、fastlaneの初期化をする。</p>
+<pre><code>fastlane init
+</code></pre>
+<p>質問は割愛しますが、最初の質問？のテンプレートを使うかどうか？は使用しないようにしてください。</p>
+<h2>AppStoreへのリリースビルドのlaneを作成</h2>
+<p>以下のファイルをテキストエディタなどで開く</p>
+<pre><code>/プロジェクト/fastlane/Fastfile
+</code></pre>
+<p>以下の記載を行う。</p>
+<pre><code>default_platform(:ios)
+
+platform :ios do
+
+  lane :release_app do
+    build_app(scheme: "[アプリ名]",
+            workspace: "[アプリ名].xcworkspace",
+            include_bitcode: true)
+    upload_to_app_store(
+      username: "[Apple ID]",
+      force: true,
+      skip_screenshots: true,
+      skip_metadata: true
+    )
+  end
+end
+</code></pre>
+<p>以下に関しては、それぞれの環境で書き換えてください。</p>
+<pre><code>[アプリ名]
+</code></pre>
+<pre><code>[Apple ID]
+</code></pre>
+<h2>AppStoreへのリリースビルドのlaneの解説</h2>
+<p>以下は、アプリをビルドするフローです。</p>
+<pre><code>build_app(scheme: "[アプリ名]",
+            workspace: "[アプリ名].xcworkspace",
+            include_bitcode: true)
+</code></pre>
+<p>以下はAppStoreへIPAをアップロードするフローです。</p>
+<pre><code>upload_to_app_store(
+      username: "[Apple ID]",
+      force: true,
+      skip_screenshots: true,
+      skip_metadata: true
+    )
+</code></pre>
+<h2>upload_to_app_storeのオプション</h2>
+<p>以下のオプションは、HTMLのプレビューをスキップするオプションです。</p>
+<p>trueとすることで、HTMLプレビューをスキップできます。</p>
+<pre><code>force
+</code></pre>
+<p>以下のオプションは、スクリーンショットのアップロードスキップするオプションです。</p>
+<p>trueとすることで、スクリーンショットのアップロードスキップできます。</p>
+<pre><code>skip_screenshots
+</code></pre>
+<p>以下のオプションは、メタデータ（アプリの説明など）のアップロードスキップするオプションです。</p>
+<p>trueとすることで、メタデータ（アプリの説明など）のアップロードスキップできます。</p>
+<pre><code>skip_metadata
+</code></pre>
+<h2>ビルド番号の自動インクリメント</h2>
+<p>アプリバージョンならまだしも、ビルドバージョンをいちいち書き換えるのは面倒ですよね？</p>
+<p>以下の記載をlaneに追加することで、ビルドバージョンを自動で追加することができます。</p>
+<p>注意点として、ビルド番号は以下の形式にする必要があります。</p>
+<p>※純粋な数字にしてください。</p>
+<pre><code>【OK】
+1
+【NG】
+1.0
+</code></pre>
+<p>【ビルド番号のインクリメント　lane】</p>
+<pre><code>increment_build_number
+</code></pre>
+<p>ちなみに、以下でGitにPushできます。</p>
+<pre><code>commit_version_bump(
+      force: true
+    )
+
+    push_to_git_remote(
+      force: true
+    )
+</code></pre>
+<h2>全て合わせたlane</h2>
+<p>上記の内容を全て合わせたlaneは以下です。</p>
+<pre><code>default_platform(:ios)
+
+platform :ios do
+
+  lane :release_app do
+
+    increment_build_number
+    commit_version_bump(
+      force: true
+    )
+    push_to_git_remote(
+      force: true
+    )
+    build_app(scheme: "[アプリ名]",
+            workspace: "[アプリ名].xcworkspace",
+            include_bitcode: true)
+    upload_to_app_store(
+      username: "[Apple ID]",
+      force: true,
+      skip_screenshots: true,
+      skip_metadata: true
+    )
+
+  end
+end
+</code></pre>
+<p>以下のコマンドでlaneを実行することができます。</p>
+<pre><code>fastlane release_app
+</code></pre>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"fastlaneでAppStoreへのリリースビルドの自動化"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2020-05-13 20:00","data-testid":"article-date","children":"2020年5月13日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","fastlane",{"href":"/?tag=fastlane","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"fastlane"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],"$L14"]}]
+14:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+15:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"fastlaneでAppStoreへのリリースビルドの自動化 | Tech Note"}],["$","meta","1",{"name":"description","content":"fastlaneでAppStoreへのリリースビルドの自動化 - Tech Note"}],["$","meta","2",{"name":"keywords","content":"fastlane"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-05-13-200000"}],["$","meta","5",{"property":"og:title","content":"fastlaneでAppStoreへのリリースビルドの自動化"}],["$","meta","6",{"property":"og:description","content":"fastlaneでAppStoreへのリリースビルドの自動化 - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-05-13-200000"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2020-05-13 20:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"fastlaneでAppStoreへのリリースビルドの自動化"}],["$","meta","12",{"name":"twitter:description","content":"fastlaneでAppStoreへのリリースビルドの自動化 - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L15","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

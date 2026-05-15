@@ -1,0 +1,64 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2023-10-07-100000"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2023-10-07-100000","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2023-10-07-100000","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:T9df,<h1>Dockerを使用してMySQL環境をセットアップする方法</h1>
+<p>Dockerを使用すると、数分でMySQLの環境をローカルマシン上でセットアップすることができます。</p>
+<p>この記事では、Dockerを利用してMySQL環境を作成する基本的な手順を紹介します。</p>
+<h1>1. Docker イメージをPull</h1>
+<p>まず、公式のMySQLのDocker イメージをPullします。</p>
+<pre><code class="hljs language-sh">docker pull mysql:latest
+</code></pre>
+<h1>2. Docker コンテナを作成</h1>
+<p>Pullしたイメージを元に、Dockerコンテナを起動します。</p>
+<p>この時、MySQLのrootユーザのパスワードを設定することができます。</p>
+<pre><code class="hljs language-sh">docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:latest
+</code></pre>
+<p>上記の<code>mysql-container</code>はコンテナの名前、<code>my-secret-pw</code>はrootユーザのパスワードです。</p>
+<p>これらは適宜変更してください。</p>
+<h1>3. MySQLに接続</h1>
+<p>コンテナを起動した後、以下のコマンドでMySQLサーバに接続できます。</p>
+<pre><code class="hljs language-sh">docker <span class="hljs-built_in">exec</span> -it mysql-container mysql -u root -p
+</code></pre>
+<p>コマンドを実行後、設定したパスワードを入力してください。</p>
+<h1>Docker Composeを利用する方法</h1>
+<p>もし、より複雑な環境構築が必要な場合や、複数のサービスと連携させる場合には、<code>docker-compose</code>を利用することが推奨されます。</p>
+<p>以下は基本的な<code>docker-compose.yml</code>のサンプルです。</p>
+<pre><code class="hljs language-sh">version: <span class="hljs-string">'3'</span>
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: mydatabase
+    ports:
+      - <span class="hljs-string">"3306:3306"</span>
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+</code></pre>
+<p>このファイルを作成したら、以下のコマンドでMySQLコンテナを起動できます。</p>
+<pre><code class="hljs language-sh">docker-compose up -d
+</code></pre>
+<p>これで、MySQL環境のセットアップは完了です。</p>
+<p>Dockerの利点を活かして、簡単かつ迅速にデータベース環境を構築し、開発を効率的に進めましょう！</p>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"Dockerを使用してMySQL環境をセットアップする方法"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2023-10-07 10:00","data-testid":"article-date","children":"2023年10月7日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","Docker",{"href":"/?tag=Docker","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"Docker"}],["$","$L12","MySQL",{"href":"/?tag=MySQL","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"MySQL"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+14:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"Dockerを使用してMySQL環境をセットアップする方法 | Tech Note"}],["$","meta","1",{"name":"description","content":"Dockerを使用してMySQL環境をセットアップする方法 - Tech Note"}],["$","meta","2",{"name":"keywords","content":"Docker,MySQL"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2023-10-07-100000"}],["$","meta","5",{"property":"og:title","content":"Dockerを使用してMySQL環境をセットアップする方法"}],["$","meta","6",{"property":"og:description","content":"Dockerを使用してMySQL環境をセットアップする方法 - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2023-10-07-100000"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2023-10-07 10:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"Dockerを使用してMySQL環境をセットアップする方法"}],["$","meta","12",{"name":"twitter:description","content":"Dockerを使用してMySQL環境をセットアップする方法 - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L14","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

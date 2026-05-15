@@ -1,0 +1,52 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2023-08-25-100000"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2023-08-25-100000","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2023-08-25-100000","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:Td3c,<h1>TypeScriptでのパターンマッチング　ts-patternの使い方</h1>
+<p>TypeScriptには標準でパターンマッチングの機能が組み込まれていませんが、<code>ts-pattern</code>というライブラリを使用することで、この機能を取り入れることができます。</p>
+<p>今回は、この<code>ts-pattern</code>の基本的な使い方と、複数の条件を組み合わせる方法について解説します。</p>
+<h1>ts-patternの導入</h1>
+<p>まず、<code>ts-pattern</code>をプロジェクトに導入します。</p>
+<pre><code class="hljs language-sh">npm install ts-pattern
+</code></pre>
+<h1>基本的な使い方</h1>
+<p><code>ts-pattern</code>を使うことで、データの形に基づいて処理を分岐させることができます。</p>
+<pre><code class="hljs language-JavaScript"><span class="hljs-keyword">import</span> { match } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-pattern'</span>;
+
+<span class="hljs-keyword">const</span> result = <span class="hljs-title function_">match</span>(data)
+  .<span class="hljs-title function_">with</span>({ <span class="hljs-attr">type</span>: <span class="hljs-string">'dog'</span> }, <span class="hljs-function">() =></span> <span class="hljs-string">"It's a dog!"</span>)
+  .<span class="hljs-title function_">otherwise</span>(<span class="hljs-function">() =></span> <span class="hljs-string">"Unknown animal"</span>);
+</code></pre>
+<p>上記の例では、<code>type</code>プロパティが<code>dog</code>であるかどうかを判定しています。</p>
+<h1>複数の条件を組み合わせる</h1>
+<p><code>ts-pattern</code>には、複数の条件を組み合わせるための機能が提供されています。</p>
+<p><code>P.union</code>を使用することで、2つ以上のパターンを1つに組み合わせることができます。</p>
+<p>例として、値がnull、undefined、または空文字列である場合に、特定の処理を行いたいとします。</p>
+<pre><code class="hljs language-JavaScript"><span class="hljs-keyword">import</span> { match, P } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-pattern'</span>;
+
+<span class="hljs-keyword">const</span> result = <span class="hljs-title function_">match</span>(sample)
+  .<span class="hljs-title function_">with</span>(P.<span class="hljs-title function_">union</span>(P.<span class="hljs-property">nullish</span>, <span class="hljs-string">""</span>), <span class="hljs-function">() =></span> <span class="hljs-string">""</span>)
+  .<span class="hljs-title function_">otherwise</span>(<span class="hljs-function">(<span class="hljs-params">samp</span>) =></span> samp);
+</code></pre>
+<p><code>P.union</code>は、与えられた複数のパターンのいずれかにマッチする場合に使用されます。</p>
+<h1>まとめ</h1>
+<p><code>ts-pattern</code>はTypeScriptでのパターンマッチングを簡単に実現するライブラリです。</p>
+<p>特に、複数の条件を組み合わせたい場合には、<code>P.union</code>などの便利な関数が提供されているため、高度なマッチングが可能となります。</p>
+<p>TypeScriptでのコーディングをより強力に、そして簡潔にしたい場合は、このライブラリの導入を検討してみてください。</p>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"ts-patternを使用した複数条件の比較（または）　P.union"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2023-08-25 10:00","data-testid":"article-date","children":"2023年8月25日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","React",{"href":"/?tag=React","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"React"}],["$","$L12","ts-pattern",{"href":"/?tag=ts-pattern","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"ts-pattern"}],["$","$L12","TypeScript",{"href":"/?tag=TypeScript","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"TypeScript"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],"$L14"]}]
+14:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+15:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"ts-patternを使用した複数条件の比較（または）　P.union | Tech Note"}],["$","meta","1",{"name":"description","content":"ts-patternを使用した複数条件の比較（または）　P.union - Tech Note"}],["$","meta","2",{"name":"keywords","content":"React,ts-pattern,TypeScript"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2023-08-25-100000"}],["$","meta","5",{"property":"og:title","content":"ts-patternを使用した複数条件の比較（または）　P.union"}],["$","meta","6",{"property":"og:description","content":"ts-patternを使用した複数条件の比較（または）　P.union - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2023-08-25-100000"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2023-08-25 10:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"ts-patternを使用した複数条件の比較（または）　P.union"}],["$","meta","12",{"name":"twitter:description","content":"ts-patternを使用した複数条件の比較（または）　P.union - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L15","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

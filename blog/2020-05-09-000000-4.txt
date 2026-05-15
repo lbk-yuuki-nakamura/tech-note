@@ -1,0 +1,115 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2020-05-09-000000-4"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2020-05-09-000000-4","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2020-05-09-000000-4","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:T289c,<h2>■はじめに</h2>
+<p>ここでは、「APIKit」というライブラリのサンプルを記載します。
+APIKitの詳細に関しては、GitHub（<a href="https://github.com/ishkawa/APIKit">https://github.com/ishkawa/APIKit</a>）を参照してください。
+APIKitの詳細を簡単に説明すると、タイプセーフにAPIを利用するためのライブラリです。
+※タイプセーフとは、型変換の時に別の型を渡せない様になっているみたいなことです。（String型にInt型を設定するなどはできない）
+※CocoaPodsなどを用いて、APIKitをプロジェクトに組み込んでおいてください。（ここでは組込方法は割愛します。）</p>
+<p>また、以下のサンプルでは、郵便番号検索APIを使用したサンプルになっていますが、郵便番号検索APIには「zipcloud」（<a href="http://zipcloud.ibsnet.co.jp/doc/api">http://zipcloud.ibsnet.co.jp/doc/api</a>）を利用しています。</p>
+<h2>■手順</h2>
+<p>まずは、APIのレスポンスを入れるためのEntityを作成します。
+郵便番号検索APIのレスポンスを入れるため、以下の様に記載してください。</p>
+<pre><code class="hljs language-swift"><span class="hljs-keyword">import</span> Foundation
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span> {
+    <span class="hljs-keyword">var</span> address1: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>
+    <span class="hljs-keyword">var</span> address2: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>
+    <span class="hljs-keyword">var</span> address3: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>
+    <span class="hljs-keyword">var</span> kana1: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>
+    <span class="hljs-keyword">var</span> kana2: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>
+    <span class="hljs-keyword">var</span> kana3: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>
+    <span class="hljs-keyword">var</span> prefcode: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>
+    <span class="hljs-keyword">var</span> zipcode: <span class="hljs-type">String</span> <span class="hljs-operator">=</span> <span class="hljs-string">""</span>
+
+    <span class="hljs-keyword">init</span>(<span class="hljs-params">object</span>: [<span class="hljs-params">String</span>: <span class="hljs-type">AnyObject</span>]<span class="hljs-operator">?</span>) <span class="hljs-keyword">throws</span> {
+        <span class="hljs-keyword">guard</span>
+            <span class="hljs-keyword">let</span> status: <span class="hljs-type">Int</span> <span class="hljs-operator">=</span> object<span class="hljs-operator">?</span>[<span class="hljs-string">"status"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">Int</span>,
+            status <span class="hljs-operator">==</span> <span class="hljs-number">200</span>,
+            <span class="hljs-keyword">let</span> results: <span class="hljs-type">NSArray</span> <span class="hljs-operator">=</span> object<span class="hljs-operator">?</span>[<span class="hljs-string">"results"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">NSArray</span>
+        <span class="hljs-keyword">else</span> { <span class="hljs-keyword">return</span> }
+
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> data <span class="hljs-operator">=</span> results[<span class="hljs-number">0</span>] <span class="hljs-keyword">as?</span> [<span class="hljs-type">String</span>: <span class="hljs-type">AnyObject</span>] {
+            <span class="hljs-keyword">self</span>.address1 <span class="hljs-operator">=</span> data[<span class="hljs-string">"address1"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span> <span class="hljs-operator">??</span> <span class="hljs-string">""</span>
+            <span class="hljs-keyword">self</span>.address2 <span class="hljs-operator">=</span> data[<span class="hljs-string">"address2"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span> <span class="hljs-operator">??</span> <span class="hljs-string">""</span>
+            <span class="hljs-keyword">self</span>.address3 <span class="hljs-operator">=</span> data[<span class="hljs-string">"address3"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span> <span class="hljs-operator">??</span> <span class="hljs-string">""</span>
+            <span class="hljs-keyword">self</span>.kana1 <span class="hljs-operator">=</span> data[<span class="hljs-string">"kana1"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span> <span class="hljs-operator">??</span> <span class="hljs-string">""</span>
+            <span class="hljs-keyword">self</span>.kana2 <span class="hljs-operator">=</span> data[<span class="hljs-string">"kana2"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span> <span class="hljs-operator">??</span> <span class="hljs-string">""</span>
+            <span class="hljs-keyword">self</span>.kana3 <span class="hljs-operator">=</span> data[<span class="hljs-string">"kana3"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span> <span class="hljs-operator">??</span> <span class="hljs-string">""</span>
+            <span class="hljs-keyword">self</span>.prefcode <span class="hljs-operator">=</span> data[<span class="hljs-string">"prefcode"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span> <span class="hljs-operator">??</span> <span class="hljs-string">""</span>
+            <span class="hljs-keyword">self</span>.zipcode <span class="hljs-operator">=</span> data[<span class="hljs-string">"zipcode"</span>] <span class="hljs-keyword">as?</span> <span class="hljs-type">String</span> <span class="hljs-operator">??</span> <span class="hljs-string">""</span>
+        }
+    }
+}
+</code></pre>
+<p>次に、APIの本体となるDataStoreクラスを作成します。</p>
+<p>以下の様に記載してください。</p>
+<p>ここで、APIのURLやパラメータやHTTPメソッドなどの指定をしています。</p>
+<pre><code class="hljs language-swift"><span class="hljs-keyword">import</span> Foundation
+<span class="hljs-keyword">import</span> APIKit
+
+<span class="hljs-keyword">struct</span> <span class="hljs-title class_">DataStore</span>: <span class="hljs-title class_ inherited__">Request</span> {
+    <span class="hljs-keyword">typealias</span> <span class="hljs-type">Response</span> <span class="hljs-operator">=</span> <span class="hljs-type">Entity</span>
+    <span class="hljs-keyword">let</span> zipcode: <span class="hljs-type">String</span>
+
+    <span class="hljs-keyword">var</span> baseURL: <span class="hljs-type">URL</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-type">URL</span>(string: <span class="hljs-string">"http://zipcloud.ibsnet.co.jp"</span>)<span class="hljs-operator">!</span>
+    }
+
+    <span class="hljs-keyword">var</span> method: <span class="hljs-type">HTTPMethod</span> {
+        <span class="hljs-keyword">return</span> .get
+    }
+
+    <span class="hljs-keyword">var</span> path: <span class="hljs-type">String</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"/api/search"</span>
+    }
+
+    <span class="hljs-keyword">var</span> parameters: <span class="hljs-keyword">Any</span><span class="hljs-operator">?</span> {
+        <span class="hljs-keyword">return</span> [<span class="hljs-string">"zipcode"</span>: zipcode]
+    }
+
+    <span class="hljs-keyword">func</span> <span class="hljs-title function_">response</span>(<span class="hljs-params">from</span> <span class="hljs-params">object</span>: <span class="hljs-keyword">Any</span>, <span class="hljs-params">urlResponse</span>: <span class="hljs-type">HTTPURLResponse</span>) <span class="hljs-keyword">throws</span> -> <span class="hljs-type">Entity</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">try</span> <span class="hljs-type">Entity</span>(object: object <span class="hljs-keyword">as?</span> [String : <span class="hljs-type">AnyObject</span>])
+    }
+}
+</code></pre>
+<p>ここまで用意できたら以下の様に呼び出すだけです。</p>
+<p>以下は、千代田区の郵便番号を利用しています。（100-0000なんて、キリがいい郵便番号だったので！）</p>
+<pre><code class="hljs language-swift"><span class="hljs-comment">// 東京都千代田区の郵便番号「100-0000」</span>
+<span class="hljs-keyword">let</span> request <span class="hljs-operator">=</span> <span class="hljs-type">DataStore</span>(zipcode: <span class="hljs-string">"1000000"</span>)
+<span class="hljs-type">Session</span>.send(request) { result <span class="hljs-keyword">in</span>
+    <span class="hljs-keyword">switch</span> result {
+    <span class="hljs-keyword">case</span> .success(<span class="hljs-keyword">let</span> target):
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"=====SUCCESS====="</span>)
+        <span class="hljs-built_in">print</span>(target.address1)
+        <span class="hljs-built_in">print</span>(target.address2)
+        <span class="hljs-built_in">print</span>(target.address3)
+        <span class="hljs-built_in">print</span>(target.kana1)
+        <span class="hljs-built_in">print</span>(target.kana2)
+        <span class="hljs-built_in">print</span>(target.kana3)
+        <span class="hljs-built_in">print</span>(target.prefcode)
+        <span class="hljs-built_in">print</span>(target.zipcode)
+    <span class="hljs-keyword">case</span> .failure(<span class="hljs-keyword">let</span> error):
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">"error: <span class="hljs-subst">\(error)</span>"</span>)
+    }
+}
+</code></pre>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"APIKitのサンプル（郵便番号検索）【Swift】"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2020-05-09 00:00","data-testid":"article-date","children":"2020年5月9日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","Swift",{"href":"/?tag=Swift","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"Swift"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],"$L14"]}]
+14:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+15:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"APIKitのサンプル（郵便番号検索）【Swift】 | Tech Note"}],["$","meta","1",{"name":"description","content":"APIKitのサンプル（郵便番号検索）【Swift】 - Tech Note"}],["$","meta","2",{"name":"keywords","content":"Swift"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-05-09-000000-4"}],["$","meta","5",{"property":"og:title","content":"APIKitのサンプル（郵便番号検索）【Swift】"}],["$","meta","6",{"property":"og:description","content":"APIKitのサンプル（郵便番号検索）【Swift】 - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-05-09-000000-4"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2020-05-09 00:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"APIKitのサンプル（郵便番号検索）【Swift】"}],["$","meta","12",{"name":"twitter:description","content":"APIKitのサンプル（郵便番号検索）【Swift】 - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L15","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"

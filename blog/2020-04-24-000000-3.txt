@@ -1,0 +1,391 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[8955,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"Analytics"]
+5:I[8854,["177","static/chunks/app/layout-570d4a204623a6b9.js"],"SpeedInsights"]
+7:I[4431,[],"OutletBoundary"]
+9:I[5278,[],"AsyncMetadataOutlet"]
+b:I[4431,[],"ViewportBoundary"]
+d:I[4431,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[7150,[],""]
+:HL["/tech-note/_next/static/css/250e86d9454f250a.css","style"]
+0:{"P":null,"b":"pu-6EJ6ilZMxlNhaEQT88","p":"/tech-note","c":["","blog","2020-04-24-000000-3"],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2020-04-24-000000-3","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/tech-note/_next/static/css/250e86d9454f250a.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"ja","children":[["$","head",null,{"children":["$","link",null,{"rel":"preconnect","href":"https://fonts.googleapis.com"}]}],["$","body",null,{"className":"flex min-h-screen flex-col","children":[["$","main",null,{"className":"flex-1","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"border-t border-slate-700 bg-slate-800 py-6 text-center text-sm text-slate-500","children":["$","p",null,{"children":["© ",2026," Tech Note"]}]}],["$","$L4",null,{}],["$","$L5",null,{}]]}]]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2020-04-24-000000-3","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],null],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[2844,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],"default"]
+12:I[2619,["176","static/chunks/176-b1374ab33d855c73.js","953","static/chunks/app/blog/%5Bslug%5D/page-874022d86e729f26.js"],""]
+13:Ta5aa,<h1>■はじめに</h1>
+<p>画像は、UIImageViewを使用して画面に表示するだけだが、動画のプレビューはどうやって作ろう？
+と考える事がある。</p>
+<p>ライブラリを使用するという手もあるが、ライブラリを使用しない場合の一般的には以下の方法になるかと思う。
+・AVPlayerViewControllerを使用する
+・独自でプレビュー画面を作成する</p>
+<p>ここでは、上記の方法に関して記載する。
+※ここでは、「sample.mov」をプレビューする方法を記載しているが、再生したい動画に読み替えてください。</p>
+<h1>◾️AVPlayerViewControllerを使用する</h1>
+<p>Appleさんが提供している「AVPlayerViewController」をそのまま使用する方法を記載します。
+まずは、以下の通り、「AVKit」をインポートします。</p>
+<pre><code class="hljs language-swift"><span class="hljs-keyword">import</span> AVKit
+</code></pre>
+<p>その後、画面の初期化処理などで、以下のように「AVPlayerViewController」をViewに表示します。</p>
+<pre><code class="hljs language-swift"><span class="hljs-keyword">let</span> path <span class="hljs-operator">=</span> <span class="hljs-type">Bundle</span>.main.path(forResource: <span class="hljs-string">"sample.mov"</span>, ofType: <span class="hljs-literal">nil</span>)
+
+<span class="hljs-keyword">let</span> player <span class="hljs-operator">=</span> <span class="hljs-type">AVPlayer</span>(url: <span class="hljs-type">URL</span>(fileURLWithPath:path<span class="hljs-operator">!</span>))
+<span class="hljs-keyword">let</span> playerController <span class="hljs-operator">=</span> <span class="hljs-type">AVPlayerViewController</span>()
+playerController.player <span class="hljs-operator">=</span> player
+<span class="hljs-keyword">self</span>.addChild(playerController)
+<span class="hljs-keyword">self</span>.view.addSubview(playerController.view)
+playerController.view.frame <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span>.view.frame
+</code></pre>
+<h1>◾️独自でプレビュー画面を作成する</h1>
+<p>基本的には、「AVPlayerViewController」を使用していれば、満足すると思いますが
+「AVPlayerViewController」では、動画のコントロールバー（再生やスキップがある部分）の背景色が
+変更できないなど、自由度がないです。</p>
+<p>こういった場合に、独自でプレビュー画面を作成することになると思います。
+独自での作成なので、正解はないのですが、私が作成した「AVPlayerViewController」に近づけたプレビュー画面を以下に記載します。
+あくまで参考程度に見てください。
+※こちらを元に、独自のプレビュー画面を作るでもいいですし。</p>
+<p>「CustomAVPlayerViewController.swift」を作成して、以下のソースコードをまるまるコピペして貼り付けてください。</p>
+<pre><code class="hljs language-swift"><span class="hljs-keyword">import</span> UIKit
+<span class="hljs-keyword">import</span> AVFoundation
+<span class="hljs-keyword">import</span> CoreMedia
+
+<span class="hljs-keyword">open</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomAVPlayerViewController</span>: <span class="hljs-title class_ inherited__">UIViewController</span>, <span class="hljs-title class_ inherited__">UIGestureRecognizerDelegate</span> {
+    <span class="hljs-comment">// AVPlayer.</span>
+    <span class="hljs-keyword">open</span> <span class="hljs-keyword">var</span> player : <span class="hljs-type">AVPlayer</span>!
+
+    <span class="hljs-comment">// シークバー.</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> seekBar : <span class="hljs-type">UISlider</span> <span class="hljs-operator">=</span> <span class="hljs-type">UISlider</span>()
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> layer: <span class="hljs-type">AVPlayerLayer</span>!
+    <span class="hljs-comment">// フッター</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> footer: <span class="hljs-type">UIView</span> <span class="hljs-operator">=</span> <span class="hljs-type">UIView</span>()
+    <span class="hljs-comment">// 再生、停止ボタン</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> movieBtn:<span class="hljs-type">UIButton</span> <span class="hljs-operator">=</span> <span class="hljs-type">UIButton</span>()
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> skipNextBtn:<span class="hljs-type">UIButton</span> <span class="hljs-operator">=</span> <span class="hljs-type">UIButton</span>()
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> skipPrevBtn:<span class="hljs-type">UIButton</span> <span class="hljs-operator">=</span> <span class="hljs-type">UIButton</span>()
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> durationLabel: <span class="hljs-type">UILabel</span> <span class="hljs-operator">=</span> <span class="hljs-type">UILabel</span>()
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> currentLabel: <span class="hljs-type">UILabel</span> <span class="hljs-operator">=</span> <span class="hljs-type">UILabel</span>()
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> backBtn:<span class="hljs-type">UIButton</span> <span class="hljs-operator">=</span> <span class="hljs-type">UIButton</span>()
+    <span class="hljs-comment">// 動画の再生状況保持ステータス</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> movieStatus <span class="hljs-operator">=</span> <span class="hljs-number">0</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> showControllFlag <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> screenWidth <span class="hljs-operator">=</span> <span class="hljs-type">UIScreen</span>.main.bounds.size.width
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">var</span> screenHeight <span class="hljs-operator">=</span> <span class="hljs-type">UIScreen</span>.main.bounds.size.height
+
+    <span class="hljs-keyword">override</span> <span class="hljs-keyword">open</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLoad</span>() {
+        <span class="hljs-keyword">let</span> playerItem <span class="hljs-operator">=</span> player.currentItem
+        <span class="hljs-comment">// 動画の再生の終了を検知</span>
+        <span class="hljs-type">NotificationCenter</span>.default.addObserver(<span class="hljs-keyword">self</span>, selector: <span class="hljs-keyword">#selector</span>(didPlayToEndTime), name: .<span class="hljs-type">AVPlayerItemDidPlayToEndTime</span>, object: playerItem)
+
+        <span class="hljs-comment">// Viewを生成.</span>
+        <span class="hljs-keyword">let</span> videoPlayerView <span class="hljs-operator">=</span> <span class="hljs-type">AVPlayerView</span>(frame: <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>, width: screenWidth, height: screenHeight))
+        <span class="hljs-comment">// UIViewのレイヤーをAVPlayerLayerにする.</span>
+        layer <span class="hljs-operator">=</span> videoPlayerView.layer <span class="hljs-keyword">as?</span> <span class="hljs-type">AVPlayerLayer</span>
+        layer.videoGravity <span class="hljs-operator">=</span> <span class="hljs-type">AVLayerVideoGravity</span>.resizeAspect
+        layer.player <span class="hljs-operator">=</span> player
+
+        <span class="hljs-comment">// レイヤーを追加する.</span>
+        <span class="hljs-keyword">self</span>.view.layer.addSublayer(layer)
+
+        <span class="hljs-comment">// フッター</span>
+        footer.backgroundColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.darkGray
+        footer.layer.cornerRadius <span class="hljs-operator">=</span> <span class="hljs-number">10</span>
+
+        <span class="hljs-comment">// 動画のシークバーとなるUISliderを生成.</span>
+        seekBar.minimumValue <span class="hljs-operator">=</span> <span class="hljs-number">0</span>
+        seekBar.maximumValue <span class="hljs-operator">=</span> <span class="hljs-type">Float</span>(<span class="hljs-type">CMTimeGetSeconds</span>(playerItem<span class="hljs-operator">!</span>.as<span class="hljs-keyword">set</span>.duration))
+        seekBar.addTarget(<span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(onSliderValueChange), for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">Event</span>.valueChanged)
+        <span class="hljs-keyword">let</span> greenImage <span class="hljs-operator">=</span> <span class="hljs-type">UIImage</span>.image(color: .green, size: <span class="hljs-type">CGSize</span>(width: <span class="hljs-number">10</span>, height: <span class="hljs-number">5</span>))
+        seekBar.setThumbImage(greenImage, for: .normal)
+        footer.addSubview(seekBar)
+
+        <span class="hljs-comment">/* シークバーを動画とシンクロさせる為の処理 */</span>
+        <span class="hljs-comment">// 0.5分割で動かす事が出来る様にインターバルを指定.</span>
+        <span class="hljs-keyword">let</span> interval : <span class="hljs-type">Double</span> <span class="hljs-operator">=</span> <span class="hljs-type">Double</span>(<span class="hljs-number">0.5</span> <span class="hljs-operator">*</span> seekBar.maximumValue) <span class="hljs-operator">/</span> <span class="hljs-type">Double</span>(seekBar.bounds.maxX)
+        <span class="hljs-comment">// CMTimeに変換する.</span>
+        <span class="hljs-keyword">let</span> time : <span class="hljs-type">CMTime</span> <span class="hljs-operator">=</span> <span class="hljs-type">CMTimeMakeWithSeconds</span>(interval, preferredTimescale: <span class="hljs-type">Int32</span>(<span class="hljs-type">NSEC_PER_SEC</span>))
+        <span class="hljs-comment">// time毎に呼び出される.</span>
+        player.addPeriodicTimeObserver(forInterval: time, queue: <span class="hljs-literal">nil</span>) { (time) -> <span class="hljs-type">Void</span> <span class="hljs-keyword">in</span>
+            <span class="hljs-comment">// 総再生時間を取得.</span>
+            <span class="hljs-keyword">let</span> duration <span class="hljs-operator">=</span> <span class="hljs-type">CMTimeGetSeconds</span>((<span class="hljs-keyword">self</span>.player.currentItem<span class="hljs-operator">?</span>.duration)<span class="hljs-operator">!</span>)
+            <span class="hljs-comment">// 現在の時間を取得.</span>
+            <span class="hljs-keyword">let</span> time <span class="hljs-operator">=</span> <span class="hljs-type">CMTimeGetSeconds</span>(<span class="hljs-keyword">self</span>.player.currentTime())
+
+            <span class="hljs-keyword">self</span>.setTime()
+
+            <span class="hljs-comment">// シークバーの位置を変更.</span>
+            <span class="hljs-keyword">let</span> value <span class="hljs-operator">=</span> <span class="hljs-type">Float</span>(<span class="hljs-keyword">self</span>.seekBar.maximumValue <span class="hljs-operator">-</span> <span class="hljs-keyword">self</span>.seekBar.minimumValue) <span class="hljs-operator">*</span> <span class="hljs-type">Float</span>(time) <span class="hljs-operator">/</span> <span class="hljs-type">Float</span>(duration) <span class="hljs-operator">+</span> <span class="hljs-type">Float</span>(<span class="hljs-keyword">self</span>.seekBar.minimumValue)
+            <span class="hljs-keyword">self</span>.seekBar.value <span class="hljs-operator">=</span> value
+        }
+
+        <span class="hljs-comment">// 動画の再生ボタンを生成.</span>
+        movieBtn.layer.masksToBounds <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+        movieBtn.layer.cornerRadius <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span>
+        movieBtn.backgroundColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.orange
+        movieBtn.setTitle(<span class="hljs-string">"Start"</span>, for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">State</span>.normal)
+        movieBtn.addTarget(<span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(onButtonClick), for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">Event</span>.touchUpInside)
+        footer.addSubview(movieBtn)
+
+        <span class="hljs-comment">// 次へスキップボタン</span>
+        skipNextBtn.layer.masksToBounds <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+        skipNextBtn.layer.cornerRadius <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span>
+        skipNextBtn.backgroundColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.orange
+        skipNextBtn.setTitle(<span class="hljs-string">"15"</span>, for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">State</span>.normal)
+        skipNextBtn.addTarget(<span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(skipNextAction), for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">Event</span>.touchUpInside)
+        footer.addSubview(skipNextBtn)
+
+        <span class="hljs-comment">// 前へスキップボタン</span>
+        skipPrevBtn.layer.masksToBounds <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+        skipPrevBtn.layer.cornerRadius <span class="hljs-operator">=</span> <span class="hljs-number">20.0</span>
+        skipPrevBtn.backgroundColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.orange
+        skipPrevBtn.setTitle(<span class="hljs-string">"-15"</span>, for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">State</span>.normal)
+        skipPrevBtn.addTarget(<span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(skipPrevAction), for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">Event</span>.touchUpInside)
+        footer.addSubview(skipPrevBtn)
+
+        <span class="hljs-comment">// 現在の動画の再生時間</span>
+        currentLabel.text <span class="hljs-operator">=</span> <span class="hljs-string">"00:00"</span>
+        currentLabel.textAlignment <span class="hljs-operator">=</span> <span class="hljs-type">NSTextAlignment</span>.left
+        currentLabel.textColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.white
+        footer.addSubview(currentLabel)
+
+        <span class="hljs-comment">// 動画の残りの時間</span>
+        durationLabel.text <span class="hljs-operator">=</span> <span class="hljs-string">"-00:00"</span>
+        durationLabel.textAlignment <span class="hljs-operator">=</span> <span class="hljs-type">NSTextAlignment</span>.right
+        durationLabel.textColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.white
+        footer.addSubview(durationLabel)
+
+        <span class="hljs-keyword">self</span>.view.addSubview(footer)
+
+        backBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">10</span>, y: <span class="hljs-number">20</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">50</span>)
+        backBtn.setTitle(<span class="hljs-string">"×"</span>, for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">State</span>.normal)
+        backBtn.tintColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.white
+        backBtn.backgroundColor <span class="hljs-operator">=</span> <span class="hljs-type">UIColor</span>.darkGray
+        backBtn.layer.cornerRadius <span class="hljs-operator">=</span> <span class="hljs-number">10.0</span>
+        backBtn.addTarget(<span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(backAction), for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">Event</span>.touchUpInside)
+        <span class="hljs-keyword">self</span>.view.addSubview(backBtn)
+
+        <span class="hljs-comment">// TAP検知</span>
+        <span class="hljs-keyword">let</span> tapGesture:<span class="hljs-type">UITapGestureRecognizer</span> <span class="hljs-operator">=</span> <span class="hljs-type">UITapGestureRecognizer</span>(target: <span class="hljs-keyword">self</span>, action: <span class="hljs-keyword">#selector</span>(tapped))
+        <span class="hljs-keyword">self</span>.view.addGestureRecognizer(tapGesture)
+    }
+
+    <span class="hljs-comment">// 画面タップ時処理</span>
+    <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">tapped</span>(){
+        <span class="hljs-keyword">if</span> showControllFlag {
+            footer.isHidden <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+            backBtn.isHidden <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+            showControllFlag <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>
+        } <span class="hljs-keyword">else</span> {
+            footer.isHidden <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>
+            backBtn.isHidden <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>
+            showControllFlag <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>
+        }
+    }
+
+    <span class="hljs-keyword">override</span> <span class="hljs-keyword">open</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidAppear</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">animated</span>: <span class="hljs-type">Bool</span>) {
+        <span class="hljs-keyword">super</span>.viewDidAppear(animated)
+        <span class="hljs-keyword">self</span>.setTime()
+    }
+
+    <span class="hljs-comment">// 時間をラベルに反映する</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">setTime</span>() {
+        <span class="hljs-keyword">let</span> videoPlayerItem: <span class="hljs-type">AVPlayerItem</span>? <span class="hljs-operator">=</span> player.currentItem
+        <span class="hljs-keyword">let</span> videoDuration:<span class="hljs-type">CMTime</span> <span class="hljs-operator">=</span> (videoPlayerItem<span class="hljs-operator">?</span>.duration)<span class="hljs-operator">!</span>
+        <span class="hljs-keyword">let</span> videoCurrentTime:<span class="hljs-type">CMTime</span> <span class="hljs-operator">=</span> (videoPlayerItem<span class="hljs-operator">?</span>.currentTime())<span class="hljs-operator">!</span>
+        <span class="hljs-keyword">var</span> remaining:<span class="hljs-type">Int</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span> videoDuration.seconds <span class="hljs-operator">></span> <span class="hljs-number">0</span> {
+            remaining <span class="hljs-operator">=</span> <span class="hljs-type">Int</span>(videoDuration.seconds <span class="hljs-operator">-</span> videoCurrentTime.seconds)
+        }
+
+        currentLabel.text <span class="hljs-operator">=</span> <span class="hljs-type">String</span>(describing: <span class="hljs-type">Int</span>(videoCurrentTime.seconds) <span class="hljs-operator">/</span> <span class="hljs-number">60</span>) <span class="hljs-operator">+</span> <span class="hljs-string">":"</span> <span class="hljs-operator">+</span> <span class="hljs-keyword">self</span>.setSecond(<span class="hljs-type">Int</span>(videoCurrentTime.seconds) <span class="hljs-operator">%</span> <span class="hljs-number">60</span>)
+        durationLabel.text <span class="hljs-operator">=</span> <span class="hljs-string">"-"</span> <span class="hljs-operator">+</span> <span class="hljs-type">String</span>(describing: remaining <span class="hljs-operator">/</span> <span class="hljs-number">60</span>) <span class="hljs-operator">+</span> <span class="hljs-string">":"</span> <span class="hljs-operator">+</span> <span class="hljs-keyword">self</span>.setSecond(remaining <span class="hljs-operator">%</span> <span class="hljs-number">60</span>)
+    }
+
+    <span class="hljs-comment">// 1桁の秒数の場合、十の位に0を入れる</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">setSecond</span>(<span class="hljs-keyword">_</span> <span class="hljs-params">target</span>: <span class="hljs-type">Int</span>) -> <span class="hljs-type">String</span> {
+        <span class="hljs-keyword">if</span> target <span class="hljs-operator">&#x3C;</span> <span class="hljs-number">10</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"0"</span> <span class="hljs-operator">+</span> <span class="hljs-type">String</span>(describing: target)
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">return</span> <span class="hljs-type">String</span>(describing: target)
+        }
+    }
+
+    <span class="hljs-keyword">override</span> <span class="hljs-keyword">open</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">viewDidLayoutSubviews</span>() {
+        <span class="hljs-keyword">super</span>.viewDidLayoutSubviews()
+        screenWidth <span class="hljs-operator">=</span> <span class="hljs-type">UIScreen</span>.main.bounds.size.width
+        screenHeight <span class="hljs-operator">=</span> <span class="hljs-type">UIScreen</span>.main.bounds.size.height
+
+        <span class="hljs-keyword">let</span> deviceOrientation: <span class="hljs-type">UIDeviceOrientation</span>! <span class="hljs-operator">=</span> <span class="hljs-type">UIDevice</span>.current.orientation
+        <span class="hljs-keyword">switch</span> deviceOrientation {
+        <span class="hljs-keyword">case</span> .portrait<span class="hljs-operator">?</span>, .portraitUpsideDown<span class="hljs-operator">?</span>:
+            <span class="hljs-comment">// 縦の場合（ホームボタンが下に来る向き）</span>
+            <span class="hljs-comment">// 反対の場合（ホームボタンが上に来る向き）</span>
+            <span class="hljs-keyword">self</span>.verticalUi()
+        <span class="hljs-keyword">case</span> .landscapeLeft<span class="hljs-operator">?</span>, .landscapeRight<span class="hljs-operator">?</span>:
+            <span class="hljs-comment">// 左の場合（ホームボタンが右に来る向き）</span>
+            <span class="hljs-comment">// 右の場合（ホームボタンが左に来る向き）</span>
+            <span class="hljs-keyword">self</span>.sideUi()
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-comment">// 向きを取得できなかった場合には、縦の場合として処理する。</span>
+            <span class="hljs-keyword">self</span>.verticalUi()
+        }
+
+        <span class="hljs-comment">// Viewを生成.</span>
+        layer.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">0</span>, y: <span class="hljs-number">0</span>, width: screenWidth, height: screenHeight)
+    }
+
+    <span class="hljs-comment">// 縦向きの場合のUI構築</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">verticalUi</span> () {
+        <span class="hljs-keyword">let</span> footerWidth: <span class="hljs-type">CGFloat</span> <span class="hljs-operator">=</span> screenWidth <span class="hljs-operator">-</span> <span class="hljs-number">10</span>
+        <span class="hljs-keyword">let</span> footerHeight: <span class="hljs-type">CGFloat</span> <span class="hljs-operator">=</span> <span class="hljs-number">100</span>
+        footer.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">5</span>, y: screenHeight <span class="hljs-operator">-</span> footerHeight <span class="hljs-operator">-</span> <span class="hljs-number">5</span>, width: footerWidth, height: footerHeight)
+        seekBar.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">5</span>, y: <span class="hljs-number">10</span>, width: footerWidth <span class="hljs-operator">-</span> <span class="hljs-number">20</span>, height: <span class="hljs-number">40</span>)
+        movieBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: (footerWidth <span class="hljs-operator">-</span> <span class="hljs-number">50</span>) <span class="hljs-operator">/</span> <span class="hljs-number">2</span>, y: footerHeight <span class="hljs-operator">-</span> <span class="hljs-number">50</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">40</span>)
+        skipNextBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: (footerWidth <span class="hljs-operator">+</span> <span class="hljs-number">50</span>) <span class="hljs-operator">/</span> <span class="hljs-number">2</span> <span class="hljs-operator">+</span> <span class="hljs-number">10</span>, y: footerHeight <span class="hljs-operator">-</span> <span class="hljs-number">50</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">40</span>)
+        skipPrevBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: (footerWidth <span class="hljs-operator">-</span> <span class="hljs-number">50</span>) <span class="hljs-operator">/</span> <span class="hljs-number">2</span> <span class="hljs-operator">-</span> <span class="hljs-number">60</span>, y: footerHeight <span class="hljs-operator">-</span> <span class="hljs-number">50</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">40</span>)
+        backBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">10</span>, y: <span class="hljs-number">20</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">50</span>)
+
+        currentLabel.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">5</span>, y: <span class="hljs-number">40</span>, width: <span class="hljs-number">40</span>, height: <span class="hljs-number">10</span>)
+        currentLabel.font <span class="hljs-operator">=</span> <span class="hljs-type">UIFont</span>.systemFont(ofSize: <span class="hljs-number">12</span>)
+        durationLabel.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: footerWidth <span class="hljs-operator">-</span> <span class="hljs-number">45</span>, y: <span class="hljs-number">40</span>, width: <span class="hljs-number">40</span>, height: <span class="hljs-number">10</span>)
+        durationLabel.font <span class="hljs-operator">=</span> <span class="hljs-type">UIFont</span>.systemFont(ofSize: <span class="hljs-number">12</span>)
+    }
+    <span class="hljs-comment">// 横向きの場合のUI構築</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">sideUi</span>() {
+        <span class="hljs-keyword">let</span> footerWidth: <span class="hljs-type">CGFloat</span> <span class="hljs-operator">=</span> screenWidth <span class="hljs-operator">-</span> <span class="hljs-number">10</span>
+        footer.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">5</span>, y: screenHeight <span class="hljs-operator">-</span> <span class="hljs-number">50</span> <span class="hljs-operator">-</span> <span class="hljs-number">5</span>, width: footerWidth, height: <span class="hljs-number">55</span>)
+        seekBar.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">215</span>, y: <span class="hljs-number">5</span>, width: footerWidth <span class="hljs-operator">-</span> <span class="hljs-number">265</span>, height: <span class="hljs-number">40</span>)
+        movieBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">60</span>, y: <span class="hljs-number">5</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">40</span>)
+        backBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">10</span>, y: <span class="hljs-number">20</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">50</span>)
+
+        skipNextBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">115</span>, y: <span class="hljs-number">5</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">40</span>)
+        skipPrevBtn.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">5</span>, y: <span class="hljs-number">5</span>, width: <span class="hljs-number">50</span>, height: <span class="hljs-number">40</span>)
+
+        currentLabel.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: <span class="hljs-number">175</span>, y: <span class="hljs-number">20</span>, width: <span class="hljs-number">40</span>, height: <span class="hljs-number">10</span>)
+        currentLabel.font <span class="hljs-operator">=</span> <span class="hljs-type">UIFont</span>.systemFont(ofSize: <span class="hljs-number">12</span>)
+        durationLabel.frame <span class="hljs-operator">=</span> <span class="hljs-type">CGRect</span>(x: footerWidth <span class="hljs-operator">-</span> <span class="hljs-number">50</span>, y: <span class="hljs-number">20</span>, width: <span class="hljs-number">40</span>, height: <span class="hljs-number">10</span>)
+        durationLabel.font <span class="hljs-operator">=</span> <span class="hljs-type">UIFont</span>.systemFont(ofSize: <span class="hljs-number">12</span>)
+    }
+
+    <span class="hljs-comment">// 再生ボタンが押された時に呼ばれるメソッド</span>
+    <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">onButtonClick</span>(){
+        <span class="hljs-keyword">if</span> movieStatus <span class="hljs-operator">==</span> <span class="hljs-number">0</span> {
+            <span class="hljs-comment">/* 停止中の場合 */</span>
+            <span class="hljs-keyword">self</span>.movieStart()
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> movieStatus <span class="hljs-operator">==</span> <span class="hljs-number">1</span> {
+            <span class="hljs-comment">/* 再生中の場合 */</span>
+            <span class="hljs-keyword">self</span>.movieStop()
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> movieStatus <span class="hljs-operator">==</span> <span class="hljs-number">2</span> {
+            <span class="hljs-comment">/* 動画の再生が終了した場合 */</span>
+            <span class="hljs-keyword">self</span>.movieBeginningStart()
+        }
+    }
+
+    <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">backAction</span>() {
+        <span class="hljs-comment">// 1つ前の画面へ戻る</span>
+        <span class="hljs-keyword">self</span>.dismiss(animated: <span class="hljs-literal">true</span>, completion: <span class="hljs-literal">nil</span>)
+    }
+
+    <span class="hljs-comment">// スキップボタン押下時の処理</span>
+    <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">skipNextAction</span>() {
+        <span class="hljs-keyword">let</span> videoPlayerItem: <span class="hljs-type">AVPlayerItem</span>? <span class="hljs-operator">=</span> player.currentItem
+        <span class="hljs-keyword">let</span> videoDuration:<span class="hljs-type">CMTime</span> <span class="hljs-operator">=</span> (videoPlayerItem<span class="hljs-operator">?</span>.duration)<span class="hljs-operator">!</span>
+
+        <span class="hljs-keyword">var</span> currentTime:<span class="hljs-type">Float64</span> <span class="hljs-operator">=</span> <span class="hljs-type">CMTimeGetSeconds</span>(player.currentTime())
+
+        currentTime <span class="hljs-operator">+=</span> <span class="hljs-number">15</span>
+
+        <span class="hljs-keyword">if</span> currentTime <span class="hljs-operator">&#x3C;</span> videoDuration.seconds {
+            player.seek(to: <span class="hljs-type">CMTimeMakeWithSeconds</span>(currentTime, preferredTimescale: <span class="hljs-type">Int32</span>(<span class="hljs-type">NSEC_PER_SEC</span>)), toleranceBefore: <span class="hljs-type">CMTime</span>.zero, toleranceAfter: <span class="hljs-type">CMTime</span>.zero)
+        } <span class="hljs-keyword">else</span> {
+            player.seek(to: <span class="hljs-type">CMTimeMakeWithSeconds</span>(videoDuration.seconds <span class="hljs-operator">-</span> <span class="hljs-number">0.04</span>, preferredTimescale: <span class="hljs-type">Int32</span>(<span class="hljs-type">NSEC_PER_SEC</span>)), toleranceBefore: <span class="hljs-type">CMTime</span>.zero, toleranceAfter: <span class="hljs-type">CMTime</span>.zero)
+            movieStatus <span class="hljs-operator">=</span> <span class="hljs-number">2</span>
+        }
+    }
+
+    <span class="hljs-comment">// 前にスキップボタン押下時の処理</span>
+    <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">skipPrevAction</span>() {
+        <span class="hljs-keyword">var</span> currentTime:<span class="hljs-type">Float64</span> <span class="hljs-operator">=</span> <span class="hljs-type">CMTimeGetSeconds</span>(player.currentTime())
+        currentTime <span class="hljs-operator">-=</span> <span class="hljs-number">15</span>
+        player.seek(to: <span class="hljs-type">CMTimeMakeWithSeconds</span>(currentTime, preferredTimescale: <span class="hljs-type">Int32</span>(<span class="hljs-type">NSEC_PER_SEC</span>)), toleranceBefore: <span class="hljs-type">CMTime</span>.zero, toleranceAfter: <span class="hljs-type">CMTime</span>.zero)
+        <span class="hljs-keyword">if</span> movieStatus <span class="hljs-operator">==</span> <span class="hljs-number">2</span> {
+            movieStatus <span class="hljs-operator">=</span> <span class="hljs-number">0</span>
+        }
+    }
+
+    <span class="hljs-comment">// シークバーの値が変わった時に呼ばれるメソッド</span>
+    <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">onSliderValueChange</span>(){
+        <span class="hljs-comment">// 動画の再生時間をシークバーとシンクロさせる</span>
+        player.seek(to: <span class="hljs-type">CMTimeMakeWithSeconds</span>(<span class="hljs-type">Float64</span>(seekBar.value), preferredTimescale: <span class="hljs-type">Int32</span>(<span class="hljs-type">NSEC_PER_SEC</span>)))
+    }
+
+    <span class="hljs-comment">// 動画の再生が終了したら呼び出される</span>
+    <span class="hljs-keyword">@objc</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">didPlayToEndTime</span>() {
+        movieStatus <span class="hljs-operator">=</span> <span class="hljs-number">2</span>
+        movieBtn.setTitle(<span class="hljs-string">"Start"</span>, for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">State</span>.normal)
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">movieStart</span>() {
+        player.play()
+        movieStatus <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
+        movieBtn.setTitle(<span class="hljs-string">"Stop"</span>, for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">State</span>.normal)
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">movieStop</span>() {
+        player.pause()
+        movieStatus <span class="hljs-operator">=</span> <span class="hljs-number">0</span>
+        movieBtn.setTitle(<span class="hljs-string">"Start"</span>, for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">State</span>.normal)
+    }
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">movieBeginningStart</span>() {
+        player.seek(to: <span class="hljs-type">CMTimeMakeWithSeconds</span>(<span class="hljs-number">0</span>, preferredTimescale: <span class="hljs-type">Int32</span>(<span class="hljs-type">NSEC_PER_SEC</span>)))
+        player.play()
+        movieStatus <span class="hljs-operator">=</span> <span class="hljs-number">1</span>
+        movieBtn.setTitle(<span class="hljs-string">"Stop"</span>, for: <span class="hljs-type">UIControl</span>.<span class="hljs-type">State</span>.normal)
+    }
+}
+
+<span class="hljs-comment">// レイヤーをAVPlayerLayerにする為のラッパークラス.</span>
+<span class="hljs-keyword">fileprivate</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">AVPlayerView</span> : <span class="hljs-title class_ inherited__">UIView</span>{
+    <span class="hljs-keyword">required</span> <span class="hljs-keyword">init?</span>(<span class="hljs-params">coder</span> <span class="hljs-params">aDecoder</span>: <span class="hljs-type">NSCoder</span>) {
+        <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(coder: aDecoder)
+    }
+
+    <span class="hljs-keyword">override</span> <span class="hljs-keyword">init</span>(<span class="hljs-params">frame</span>: <span class="hljs-type">CGRect</span>) {
+        <span class="hljs-keyword">super</span>.<span class="hljs-keyword">init</span>(frame: frame)
+    }
+
+    <span class="hljs-keyword">override</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">var</span> layerClass : <span class="hljs-type">AnyClass</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-type">AVPlayerLayer</span>.<span class="hljs-keyword">self</span>
+    }
+}
+
+<span class="hljs-keyword">extension</span> <span class="hljs-title class_">UIImage</span> {
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">func</span> <span class="hljs-title function_">image</span>(<span class="hljs-params">color</span>: <span class="hljs-type">UIColor</span>, <span class="hljs-params">size</span>: <span class="hljs-type">CGSize</span>) -> <span class="hljs-type">UIImage</span> {
+        <span class="hljs-type">UIGraphicsBeginImageContextWithOptions</span>(size, <span class="hljs-literal">false</span>, <span class="hljs-number">5.0</span>)
+        <span class="hljs-keyword">let</span> context <span class="hljs-operator">=</span> <span class="hljs-type">UIGraphicsGetCurrentContext</span>()<span class="hljs-operator">!</span>
+        context.setFillColor(color.cgColor)
+        context.fill(<span class="hljs-type">CGRect</span>(origin: .zero, size: size))
+        <span class="hljs-keyword">let</span> image <span class="hljs-operator">=</span> <span class="hljs-type">UIGraphicsGetImageFromCurrentImageContext</span>()<span class="hljs-operator">!</span>
+        <span class="hljs-type">UIGraphicsEndImageContext</span>()
+        <span class="hljs-keyword">return</span> image
+    }
+}
+</code></pre>
+<p>上記を使用するために、動画のプレビューを表示したいViewControllerの画面の初期化処理などで、以下のように「CustomAVPlayerViewController」をViewに表示します。
+※「AVPlayerViewController」と同じになるようにしたので、違和感はないはず。。。</p>
+<pre><code class="hljs language-swift"><span class="hljs-keyword">let</span> path <span class="hljs-operator">=</span> <span class="hljs-type">Bundle</span>.main.path(forResource: <span class="hljs-string">"sample.mov"</span>, ofType: <span class="hljs-literal">nil</span>)
+
+<span class="hljs-keyword">let</span> player <span class="hljs-operator">=</span> <span class="hljs-type">AVPlayer</span>(url: <span class="hljs-type">URL</span>(fileURLWithPath:path<span class="hljs-operator">!</span>))
+<span class="hljs-keyword">let</span> playerController <span class="hljs-operator">=</span> <span class="hljs-type">CustomAVPlayerViewController</span>()
+playerController.player <span class="hljs-operator">=</span> player
+<span class="hljs-keyword">self</span>.addChild(playerController)
+<span class="hljs-keyword">self</span>.view.addSubview(playerController.view)
+playerController.view.frame <span class="hljs-operator">=</span> <span class="hljs-keyword">self</span>.view.frame
+</code></pre>6:["$","div",null,{"className":"mx-auto max-w-3xl px-4 py-10","children":[["$","div",null,{"className":"mb-2","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","testId":"back-link","children":"← 記事一覧へ"}]}],["$","article",null,{"children":[["$","header",null,{"className":"mb-8","children":[["$","h1",null,{"className":"mb-3 text-3xl font-bold text-slate-100","data-testid":"article-title","children":"動画のプレビュー【Swift】"}],["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-3 text-sm text-slate-400","children":[["$","time",null,{"dateTime":"2020-04-24 00:00","data-testid":"article-date","children":"2020年4月24日"}],null]}],["$","div",null,{"className":"flex flex-wrap gap-1","data-testid":"article-tags","children":[["$","$L12","Swift",{"href":"/?tag=Swift","className":"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors bg-slate-700 text-slate-300 hover:bg-blue-900 hover:text-blue-300","children":"Swift"}]]}]]}],["$","div",null,{"className":"prose prose-invert max-w-none prose-headings:font-bold prose-a:text-blue-400 prose-code:rounded prose-code:bg-slate-700 prose-code:px-1 prose-code:text-sm prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700","data-testid":"article-content","dangerouslySetInnerHTML":{"__html":"$13"}}]]}],"$L14"]}]
+14:["$","div",null,{"className":"mt-10 border-t border-slate-700 pt-6","children":["$","$L11",null,{"className":"text-sm text-blue-400 hover:underline","children":"← 記事一覧へ戻る"}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+15:I[622,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"動画のプレビュー【Swift】 | Tech Note"}],["$","meta","1",{"name":"description","content":"動画のプレビュー【Swift】 - Tech Note"}],["$","meta","2",{"name":"keywords","content":"Swift"}],["$","meta","3",{"name":"robots","content":"index, follow"}],["$","link","4",{"rel":"canonical","href":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-04-24-000000-3"}],["$","meta","5",{"property":"og:title","content":"動画のプレビュー【Swift】"}],["$","meta","6",{"property":"og:description","content":"動画のプレビュー【Swift】 - Tech Note"}],["$","meta","7",{"property":"og:url","content":"https://lbk-yuuki-nakamura.github.io/tech-note/blog/2020-04-24-000000-3"}],["$","meta","8",{"property":"og:type","content":"article"}],["$","meta","9",{"property":"article:published_time","content":"2020-04-24 00:00"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"動画のプレビュー【Swift】"}],["$","meta","12",{"name":"twitter:description","content":"動画のプレビュー【Swift】 - Tech Note"}],["$","link","13",{"rel":"icon","href":"/tech-note/icon.svg?d3a00a2f6d0f70d7","type":"image/svg+xml","sizes":"any"}],["$","$L15","14",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"
