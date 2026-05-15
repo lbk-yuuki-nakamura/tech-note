@@ -1,0 +1,10 @@
+exclude:
+  - posts/
+  - src/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - next.config.ts
+  - tsconfig.json
+  - "*.ts"
+  - "*.tsx"
