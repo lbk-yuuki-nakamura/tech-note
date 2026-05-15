@@ -13,3 +13,7 @@ export interface PostMeta {
 export interface Post extends PostMeta {
   contentHtml: string;
 }
+
+export interface PostMetaWithContent extends PostMeta {
+  rawContent: string;
+}

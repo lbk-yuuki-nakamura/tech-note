@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
-import type { Post, PostFrontmatter, PostMeta } from './types';
+import type { Post, PostFrontmatter, PostMeta, PostMetaWithContent } from './types';
 
 function getPostsDir(): string {
   return path.join(process.cwd(), process.env.POSTS_DIR ?? 'posts');
@@ -87,6 +87,29 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     frontmatter,
     contentHtml: processedContent.toString(),
   };
+}
+
+export function getAllPostsWithContent(): PostMetaWithContent[] {
+  const postsDir = getPostsDir();
+  if (!fs.existsSync(postsDir)) return [];
+
+  const filenames = fs.readdirSync(postsDir).filter((f) => f.endsWith('.md'));
+
+  return filenames
+    .map((filename) => {
+      const slug = filename.replace(/\.md$/, '');
+      const fullPath = path.join(postsDir, filename);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
+      const frontmatter = parseFrontmatter(data as Record<string, unknown>);
+      return { slug, frontmatter, rawContent: content };
+    })
+    .filter((post) => !isFutureDate(post.frontmatter.createAt))
+    .sort(
+      (a, b) =>
+        new Date(b.frontmatter.createAt).getTime() -
+        new Date(a.frontmatter.createAt).getTime()
+    );
 }
 
 export function filterPosts(query?: string, tags?: string[]): PostMeta[] {
